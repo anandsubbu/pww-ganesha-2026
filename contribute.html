@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PWW Ganesha Utsav 2026 — Voluntary Contributions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* CONTRIBUTION CARD (page-specific) */
+  .contrib-wrap{padding:10px 24px 40px;}
+  .contrib-card{
+    max-width:560px; margin:0 auto;
+    border:1px solid var(--gold-dim); border-radius:18px;
+    background:rgba(255,255,255,0.02);
+    padding:36px 26px 34px; text-align:center;
+  }
+  .contrib-icon{font-size:34px;}
+  .contrib-title{
+    font-family:'Cinzel',serif; font-weight:700; font-size:clamp(24px,5.5vw,32px);
+    color:var(--gold-bright); margin-top:12px; line-height:1.3;
+  }
+  .contrib-divider{
+    width:70px; height:2px; background:var(--gold-dim); margin:20px auto;
+  }
+  .payee-line{font-size:17px; font-weight:600; color:var(--cream); margin-bottom:20px; line-height:1.5;}
+
+  .upi-button{
+    display:block; width:100%; max-width:380px; margin:0 auto 22px;
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+    color:#3a1305; font-family:'Poppins',sans-serif; font-weight:700;
+    font-size:16.5px; letter-spacing:0.3px; text-decoration:none;
+    border-radius:14px; padding:16px 18px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.35);
+  }
+  .upi-button small{display:block; font-weight:500; font-size:12.5px; margin-top:3px; opacity:0.85;}
+
+  .copy-row{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    flex-wrap:wrap; margin-bottom:26px;
+  }
+  .upi-id-text{font-size:15px; color:rgba(244,233,216,0.85); font-family:monospace;}
+  .copy-btn{
+    background:transparent; border:1.5px solid var(--gold-dim); color:var(--gold-bright);
+    border-radius:999px; padding:6px 14px; font-size:13px; font-weight:600;
+    font-family:'Poppins',sans-serif; cursor:pointer;
+  }
+  .copy-btn:active{border-color:var(--gold-bright);}
+
+  .qr-box{
+    width:200px; height:200px; margin:0 auto 12px;
+    background:#fff; border-radius:16px; padding:12px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  }
+  .qr-box img{width:100%; height:100%; object-fit:contain; display:block;}
+  .qr-caption{font-size:14.5px; font-weight:600; color:var(--gold); margin-bottom:28px;}
+
+  .tier-box{
+    background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+    color:#3a1305; border-radius:12px; padding:14px 18px;
+    font-size:14.5px; font-weight:600; line-height:1.5; margin-bottom:14px;
+  }
+
+  .back-row{text-align:center; padding:26px 24px 6px;}
+
+  @media(max-width:400px){
+    .contrib-card{padding:28px 18px 26px;}
+    .qr-box{width:170px; height:170px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bunting"></div>
+
+<header class="hero">
+  <div class="hero-photo"></div>
+  <div class="logo-badge"><img src="assets/pww-logo.png" alt="Prestige West Woods Apartment Owners' Association logo"></div>
+  <div class="hero-content">
+    <h1>PWW Ganesha Utsav 2026</h1>
+    <p class="page-subtitle">Voluntary Contributions</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="meta-bar">
+    <span class="pill location">📍 Prestige Westwoods Clubhouse</span>
+    <a class="pill date" href="index.html#day1">18 SEP · FRI</a>
+    <a class="pill date" href="index.html#day2">19 SEP · SAT</a>
+    <a class="pill date" href="index.html#day3">20 SEP · SUN</a>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn btn-outline" href="index.html">← Back to Program Schedule</a>
+  </div>
+
+  <div class="divider"><span>ॐ</span></div>
+
+  <main class="contrib-wrap">
+    <div class="contrib-card">
+      <div class="contrib-icon">🙏</div>
+      <h2 class="contrib-title">Voluntary Contributions<br>Welcome</h2>
+      <div class="contrib-divider"></div>
+
+      <p class="payee-line">Pay by Cash/UPI to Raghu S · Flat 1061</p>
+
+      <a class="upi-button" href="upi://pay?pa=9591770636@ybl&amp;pn=Raghu%20S&amp;cu=INR">
+        Pay via UPI App
+        <small>Opens GPay / PhonePe / any UPI app on your phone</small>
+      </a>
+
+      <div class="copy-row">
+        <span class="upi-id-text">9591770636@ybl</span>
+        <button class="copy-btn" onclick="copyUpi(this)">Copy UPI ID</button>
+      </div>
+
+      <div class="qr-box"><img src="assets/upi-qr.png" alt="UPI QR code to pay Raghu S"></div>
+      <p class="qr-caption">Scan to Pay</p>
+
+      <div class="tier-box">🏅 Sponsors contributing ₹10,000 &amp; above will be felicitated in front of Clubhouse Stage</div>
+      <div class="tier-box">🎗️ Sponsors contributing ₹50,000 &amp; above will be given space to advertise their business with the contributor's photo on the LED wall for all 3 days</div>
+    </div>
+  </main>
+
+  <div class="back-row">
+    <a class="btn btn-outline" href="index.html">← Back to Home</a>
+  </div>
+
+  <footer>
+    <p class="invite">🙏 All Residents &amp; Families Cordially Invited 🙏</p>
+    <p class="tag">Let us come together in devotion, music and community spirit</p>
+  </footer>
+</div>
+
+<p class="credit">PWW Ganesha Utsav 2026 · Prestige West Woods Apartment Owners' Association</p>
+
+<div class="bunting"></div>
+
+<script>
+function copyUpi(btn){
+  var text = "9591770636@ybl";
+  var done = function(){
+    var original = btn.textContent;
+    btn.textContent = "Copied!";
+    setTimeout(function(){ btn.textContent = original; }, 1500);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){
+      fallbackCopy(text, done);
+    });
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+function fallbackCopy(text, done){
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch(e){}
+  document.body.removeChild(ta);
+  done();
+}
+</script>
+
+</body>
+</html>

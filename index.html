@@ -7,91 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 <style>
-  :root{
-    --maroon-dark:#2a0a0a;
-    --maroon:#4a0f14;
-    --maroon-light:#5c1418;
-    --gold:#d9b25f;
-    --gold-bright:#f0cf83;
-    --gold-dim:rgba(217,178,95,0.35);
-    --cream:#f4e9d8;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:linear-gradient(180deg,var(--maroon-dark),var(--maroon) 15%,var(--maroon) 85%,var(--maroon-dark));
-    color:var(--cream);
-    font-family:'Poppins',sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  .bunting{
-    height:14px;
-    background:repeating-linear-gradient(45deg,var(--gold) 0 10px,#1a0505 10px 20px);
-  }
-  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
-
-  /* HERO */
-  .hero{position:relative; overflow:hidden; min-height:clamp(340px,68vw,560px); display:flex; align-items:flex-end; justify-content:center;}
-  .hero-photo{
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(180deg, rgba(20,5,5,0.05) 35%, rgba(20,5,5,0.78) 78%, rgba(18,4,4,0.97) 100%),
-      url('assets/ganesha-hero-mobile.jpg');
-    background-size:cover; background-position:center 22%; background-repeat:no-repeat;
-  }
-  @media(min-width:701px){
-    .hero-photo{ background-image:
-      linear-gradient(180deg, rgba(20,5,5,0.05) 35%, rgba(20,5,5,0.75) 78%, rgba(18,4,4,0.96) 100%),
-      url('assets/ganesha-hero.jpg');
-    }
-  }
-  .hero-content{position:relative; z-index:2; text-align:center; padding:40px 20px 30px;}
-  .logo-badge{
-    position:absolute; top:16px; left:16px; z-index:3;
-    width:60px; height:60px; padding:6px;
-    background:#fdf8ee; border:2px solid var(--gold-bright); border-radius:16px;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 4px 16px rgba(0,0,0,0.45);
-  }
-  .logo-badge img{width:100%; height:100%; object-fit:contain; display:block;}
-  .hero h1{
-    font-family:'Cinzel',serif; font-weight:700; font-size:clamp(30px,6.5vw,58px);
-    color:var(--gold-bright); letter-spacing:1px; line-height:1.15;
-    text-shadow:0 2px 18px rgba(0,0,0,0.6);
-  }
-
-  /* META BAR */
-  .meta-bar{
-    display:flex; flex-wrap:wrap; justify-content:center; gap:14px;
-    padding:26px 24px 6px;
-  }
-  .pill{
-    border:1px solid var(--gold-dim); border-radius:999px; padding:9px 20px;
-    font-size:14px; letter-spacing:1px; white-space:nowrap;
-  }
-  .pill.location{color:var(--cream); font-weight:500;}
-  a.pill{text-decoration:none; cursor:pointer;}
-  .pill.date{
-    background:linear-gradient(180deg,var(--gold-bright),var(--gold));
-    color:#3a1305; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border:none;
-    transition:transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  a.pill.date:hover, a.pill.date:active{
-    transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.35);
-  }
-
-  .divider{text-align:center; padding:20px 0; position:relative;}
-  .divider::before{
-    content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-    width:min(500px,80%); height:1px; background:var(--gold-dim);
-  }
-  .divider span{
-    position:relative; background:var(--maroon); padding:0 16px; color:var(--gold);
-    font-size:20px;
-  }
-
-  /* DAYS GRID */
+  /* DAYS GRID (page-specific) */
   .days-grid{
     display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
     padding:10px 24px 40px;
@@ -103,38 +21,28 @@
     background:rgba(255,255,255,0.015); scroll-margin-top:16px;
   }
   .day-card h2{
-    text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:21px;
+    text-align:center; font-family:'Poppins',sans-serif; font-weight:700; font-size:24px;
     color:var(--gold-bright); letter-spacing:2px;
   }
-  .day-date{text-align:center; font-size:14px; font-weight:600; color:var(--gold); margin-top:4px;}
+  .day-date{text-align:center; font-size:15px; font-weight:600; color:var(--gold); margin-top:5px;}
   .day-theme{
     text-align:center; font-family:'Poppins',sans-serif; font-weight:500; font-style:normal;
-    font-size:15.5px; color:var(--cream); margin:10px 0 20px; line-height:1.45;
+    font-size:16.5px; color:var(--cream); margin:12px 0 22px; line-height:1.5;
   }
 
   .event-list{list-style:none;}
   .event{
-    text-align:center; padding:15px 0; border-top:1px solid rgba(217,178,95,0.18);
+    text-align:center; padding:16px 0; border-top:1px solid rgba(217,178,95,0.18);
   }
   .event:first-child{border-top:none;}
-  .event-name{display:block; font-weight:600; font-size:16px; line-height:1.35; color:var(--cream);}
-  .event-time{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; color:var(--gold-bright); margin-top:4px;}
-  .event-note{font-size:13.5px; color:rgba(244,233,216,0.82); margin-top:6px; line-height:1.5;}
+  .event-name{display:block; font-weight:600; font-size:17.5px; line-height:1.4; color:var(--cream);}
+  .event-time{display:block; font-family:'Poppins',sans-serif; font-weight:700; font-size:17.5px; color:var(--gold-bright); margin-top:5px;}
+  .event-note{font-size:14.5px; color:rgba(244,233,216,0.88); margin-top:7px; line-height:1.55;}
   .event-note em{color:var(--gold); font-style:normal; font-weight:500;}
 
-  footer{text-align:center; padding:30px 24px 46px;}
-  footer .invite{font-size:17px; font-weight:600; letter-spacing:0.5px;}
-  footer .tag{margin-top:8px; font-family:'Poppins',sans-serif; font-weight:400; font-size:14.5px; color:rgba(244,233,216,0.8);}
-
-  .credit{text-align:center; font-size:11px; color:rgba(244,233,216,0.35); padding-bottom:20px; letter-spacing:0.5px;}
-
-  /* SMALL PHONES */
   @media(max-width:400px){
-    .logo-badge{width:48px; height:48px; border-radius:13px; top:12px; left:12px; padding:5px;}
-    .hero h1{letter-spacing:0.5px;}
-    .pill{padding:8px 15px; font-size:12.5px;}
-    .meta-bar{gap:10px;}
     .day-card{padding:22px 16px 26px;}
+    .event-name, .event-time{font-size:16.5px;}
   }
 </style>
 </head>
@@ -156,6 +64,10 @@
     <a class="pill date" href="#day1">18 SEP · FRI</a>
     <a class="pill date" href="#day2">19 SEP · SAT</a>
     <a class="pill date" href="#day3">20 SEP · SUN</a>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn btn-gold" href="contribute.html">🙏 Voluntary Contributions</a>
   </div>
 
   <div class="divider"><span>ॐ</span></div>
