@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PWW Ganesha Utsav 2026 — Donor Wall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* STAT COUNTER */
+  .stat-wrap{text-align:center; padding:8px 24px 6px;}
+  .stat-label{
+    font-size:15px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px;
+  }
+  .stat-number{
+    font-family:'Cinzel',serif; font-weight:700; color:var(--gold-bright);
+    font-size:clamp(38px,10vw,64px); line-height:1.1;
+    text-shadow:0 2px 16px rgba(0,0,0,0.5);
+  }
+  .stat-caption{margin-top:10px; font-size:14.5px; color:rgba(244,233,216,0.75);}
+
+  /* DONOR TABLE */
+  .donor-wrap{padding:24px 24px 10px;}
+  .donor-table-box{
+    max-width:760px; margin:0 auto;
+    border:1px solid var(--gold-dim); border-radius:16px; overflow:hidden;
+  }
+  table.donor-table{width:100%; border-collapse:collapse; font-size:15px;}
+  .donor-table thead th{
+    background:rgba(240,207,131,0.12); color:var(--gold-bright);
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px;
+    letter-spacing:1px; text-transform:uppercase; text-align:left;
+    padding:14px 12px; border-bottom:1px solid var(--gold-dim);
+  }
+  .donor-table thead th.col-amt, .donor-table td.col-amt{text-align:right;}
+  .donor-table thead th.col-flat, .donor-table td.col-flat{text-align:center;}
+  .donor-table tbody td{
+    padding:13px 12px; border-bottom:1px solid rgba(217,178,95,0.14);
+    font-size:15.5px; color:var(--cream); vertical-align:top;
+  }
+  .donor-table tbody tr:last-child td{border-bottom:none;}
+  .donor-table tbody tr:nth-child(odd){background:rgba(255,255,255,0.015);}
+  .donor-table td.col-flat{font-weight:600; color:var(--gold); white-space:nowrap;}
+  .donor-table td.col-amt{font-weight:700; color:var(--gold-bright); white-space:nowrap; font-family:'Poppins',sans-serif;}
+
+  .donor-note{
+    max-width:760px; margin:16px auto 0; text-align:center;
+    font-size:13.5px; color:rgba(244,233,216,0.6); line-height:1.5;
+  }
+
+  @media(max-width:480px){
+    .donor-wrap{padding:20px 14px 10px;}
+    table.donor-table{font-size:13.5px;}
+    .donor-table thead th{padding:11px 8px; font-size:12px;}
+    .donor-table tbody td{padding:11px 8px; font-size:14px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bunting"></div>
+
+<header class="hero">
+  <div class="hero-photo"></div>
+  <div class="logo-badge"><img src="assets/pww-logo.png" alt="Prestige West Woods Apartment Owners' Association logo"></div>
+  <div class="hero-content">
+    <h1>PWW Ganesha Utsav 2026</h1>
+    <p class="page-subtitle">Donor Wall</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="meta-bar">
+    <span class="pill location">📍 Clubhouse, PWW</span>
+    <a class="pill date" href="index.html#day1">18 SEP · FRI</a>
+    <a class="pill date" href="index.html#day2">19 SEP · SAT</a>
+    <a class="pill date" href="index.html#day3">20 SEP · SUN</a>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn btn-outline" href="index.html">← Back to Home</a>
+    <a class="btn btn-saffron" href="contribute.html"><span class="emoji">🙏</span> Contribute Now</a>
+    <a class="btn btn-bronze" href="sponsors.html"><span class="emoji">🏆</span> Primary Sponsors</a>
+  </div>
+
+  <div class="divider"><span>ॐ</span></div>
+
+  <div class="stat-wrap">
+    <p class="stat-label">Total Contributions Received</p>
+    <div class="stat-number" id="statNumber" data-target="716570">₹0</div>
+    <p class="stat-caption">from 75 contributions, as of 8 Sep 2026 🙏</p>
+  </div>
+
+  <main class="donor-wrap">
+    <div class="donor-table-box">
+      <table class="donor-table">
+        <thead>
+          <tr>
+            <th class="col-flat">Flat No</th>
+            <th class="col-name">Donor Name</th>
+            <th class="col-amt">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr><td class="col-flat">1192</td><td class="col-name">Hansa Reddy</td><td class="col-amt">₹100,000</td></tr>
+        <tr><td class="col-flat">3125</td><td class="col-name">Sunil Mehta</td><td class="col-amt">₹51,000</td></tr>
+        <tr><td class="col-flat">2061</td><td class="col-name">Vishal Singivi</td><td class="col-amt">₹51,000</td></tr>
+        <tr><td class="col-flat">3043</td><td class="col-name">Mahendra</td><td class="col-amt">₹22,000</td></tr>
+        <tr><td class="col-flat">2041</td><td class="col-name">Kiran Jain</td><td class="col-amt">₹21,111</td></tr>
+        <tr><td class="col-flat">1082</td><td class="col-name">Prasanna Kumar</td><td class="col-amt">₹21,000</td></tr>
+        <tr><td class="col-flat">1111</td><td class="col-name">Srikanth</td><td class="col-amt">₹21,000</td></tr>
+        <tr><td class="col-flat">1061</td><td class="col-name">Raghu Selvaraj</td><td class="col-amt">₹21,000</td></tr>
+        <tr><td class="col-flat">1072</td><td class="col-name">Uttam Ganna Chand</td><td class="col-amt">₹21,000</td></tr>
+        <tr><td class="col-flat">2095</td><td class="col-name">Ravi Agarwal</td><td class="col-amt">₹21,000</td></tr>
+        <tr><td class="col-flat">4212</td><td class="col-name">Kishore R Benani</td><td class="col-amt">₹15,001</td></tr>
+        <tr><td class="col-flat">G 15</td><td class="col-name">G 15</td><td class="col-amt">₹15,000</td></tr>
+        <tr><td class="col-flat">3196</td><td class="col-name">Harish</td><td class="col-amt">₹11,500</td></tr>
+        <tr><td class="col-flat">2112</td><td class="col-name">Vinit Laxmi Modi</td><td class="col-amt">₹11,111</td></tr>
+        <tr><td class="col-flat">4154</td><td class="col-name">Mahesh, Ruchi, Misha &amp; Disha</td><td class="col-amt">₹11,111</td></tr>
+        <tr><td class="col-flat">4133</td><td class="col-name">Suresh Chand &amp; Suman Ajmeera</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">2094</td><td class="col-name">Ashvin Semlani</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">—</td><td class="col-name">Hum Panch</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">2176</td><td class="col-name">Sridhar, Bhawna, Cherry and Rose</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">—</td><td class="col-name">Meenakshi Electric Corporation</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">2176</td><td class="col-name">Sridhar Kumar</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">2074</td><td class="col-name">Smita Sapani</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">4035</td><td class="col-name">Sakshi Goel</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">3174</td><td class="col-name">Vallabh Daga &amp; Family</td><td class="col-amt">₹11,000</td></tr>
+        <tr><td class="col-flat">3021</td><td class="col-name">Srinivas</td><td class="col-amt">₹10,001</td></tr>
+        <tr><td class="col-flat">2223</td><td class="col-name">Usha Lingaraju</td><td class="col-amt">₹10,001</td></tr>
+        <tr><td class="col-flat">2093</td><td class="col-name">D Vijay Kumar</td><td class="col-amt">₹10,001</td></tr>
+        <tr><td class="col-flat">3052</td><td class="col-name">Prakash Ramachandran</td><td class="col-amt">₹10,000</td></tr>
+        <tr><td class="col-flat">1161</td><td class="col-name">Girish Parekh</td><td class="col-amt">₹10,000</td></tr>
+        <tr><td class="col-flat">4164</td><td class="col-name">Anand subbu</td><td class="col-amt">₹9,501</td></tr>
+        <tr><td class="col-flat">5072</td><td class="col-name">Varun Y J</td><td class="col-amt">₹9,501</td></tr>
+        <tr><td class="col-flat">2192</td><td class="col-name">Abishek Mehta</td><td class="col-amt">₹5,100</td></tr>
+        <tr><td class="col-flat">4124</td><td class="col-name">Sajjan Kotari</td><td class="col-amt">₹5,100</td></tr>
+        <tr><td class="col-flat">2124/4184</td><td class="col-name">Rajesh Kumar &amp; Lalit Kumar Parmar</td><td class="col-amt">₹5,100</td></tr>
+        <tr><td class="col-flat">1173</td><td class="col-name">K J Kaul</td><td class="col-amt">₹5,100</td></tr>
+        <tr><td class="col-flat">2054</td><td class="col-name">Mukesh Kumar Jain</td><td class="col-amt">₹5,100</td></tr>
+        <tr><td class="col-flat">3072</td><td class="col-name">Rafi</td><td class="col-amt">₹5,001</td></tr>
+        <tr><td class="col-flat">3122</td><td class="col-name">Bipin Bafna</td><td class="col-amt">₹5,001</td></tr>
+        <tr><td class="col-flat">2115</td><td class="col-name">Sonal &amp; Nishanth</td><td class="col-amt">₹5,001</td></tr>
+        <tr><td class="col-flat">1271</td><td class="col-name">Prerna Goenka</td><td class="col-amt">₹5,001</td></tr>
+        <tr><td class="col-flat">2152</td><td class="col-name">G Chandra Shekar</td><td class="col-amt">₹5,001</td></tr>
+        <tr><td class="col-flat">5082</td><td class="col-name">Sankalp Dalmia</td><td class="col-amt">₹5,001</td></tr>
+        <tr><td class="col-flat">4222</td><td class="col-name">Dr B S Prabhakar</td><td class="col-amt">₹5,000</td></tr>
+        <tr><td class="col-flat">1032</td><td class="col-name">Sanjay Dhoot</td><td class="col-amt">₹5,000</td></tr>
+        <tr><td class="col-flat">5093</td><td class="col-name">Deepak Kantilal Chandaliya</td><td class="col-amt">₹5,000</td></tr>
+        <tr><td class="col-flat">4176</td><td class="col-name">Shailaja K V</td><td class="col-amt">₹5,000</td></tr>
+        <tr><td class="col-flat">4101</td><td class="col-name">Vikas</td><td class="col-amt">₹5,000</td></tr>
+        <tr><td class="col-flat">3123</td><td class="col-name">Inder Kumar, Champalal Jain</td><td class="col-amt">₹5,000</td></tr>
+        <tr><td class="col-flat">2082</td><td class="col-name">Sushil Surana</td><td class="col-amt">₹3,100</td></tr>
+        <tr><td class="col-flat">1062</td><td class="col-name">Srinivasan V S</td><td class="col-amt">₹2,501</td></tr>
+        <tr><td class="col-flat">2206</td><td class="col-name">Vishal Shankla</td><td class="col-amt">₹2,500</td></tr>
+        <tr><td class="col-flat">2175</td><td class="col-name">Vijay Navya</td><td class="col-amt">₹2,116</td></tr>
+        <tr><td class="col-flat">2091</td><td class="col-name">Archit Patwari</td><td class="col-amt">₹2,100</td></tr>
+        <tr><td class="col-flat">2101</td><td class="col-name">Ayush &amp; Cipika</td><td class="col-amt">₹2,100</td></tr>
+        <tr><td class="col-flat">2104</td><td class="col-name">Amit Jain</td><td class="col-amt">₹2,100</td></tr>
+        <tr><td class="col-flat">2092</td><td class="col-name">Rahul Shah</td><td class="col-amt">₹2,100</td></tr>
+        <tr><td class="col-flat">5206</td><td class="col-name">Shivanath Nilange</td><td class="col-amt">₹2,001</td></tr>
+        <tr><td class="col-flat">2072</td><td class="col-name">Rakesh Roy</td><td class="col-amt">₹2,001</td></tr>
+        <tr><td class="col-flat">2023</td><td class="col-name">Sonu Vinod Mehta</td><td class="col-amt">₹2,000</td></tr>
+        <tr><td class="col-flat">3113</td><td class="col-name">Veena Ishvar Navalgi</td><td class="col-amt">₹2,000</td></tr>
+        <tr><td class="col-flat">4186</td><td class="col-name">Murali K</td><td class="col-amt">₹2,000</td></tr>
+        <tr><td class="col-flat">5126</td><td class="col-name">Sivasankar</td><td class="col-amt">₹1,500</td></tr>
+        <tr><td class="col-flat">2031</td><td class="col-name">Nithin Nahar</td><td class="col-amt">₹1,100</td></tr>
+        <tr><td class="col-flat">3164</td><td class="col-name">Anishka Vaishnav</td><td class="col-amt">₹1,100</td></tr>
+        <tr><td class="col-flat">1213</td><td class="col-name">Shashi kant Gupta</td><td class="col-amt">₹1,100</td></tr>
+        <tr><td class="col-flat">4031</td><td class="col-name">Gita Umesh</td><td class="col-amt">₹1,100</td></tr>
+        <tr><td class="col-flat">4121</td><td class="col-name">Kishindas Rajani</td><td class="col-amt">₹1,100</td></tr>
+        <tr><td class="col-flat">5111</td><td class="col-name">Arvind</td><td class="col-amt">₹1,100</td></tr>
+        <tr><td class="col-flat">4216</td><td class="col-name">Rajesh Pai</td><td class="col-amt">₹1,001</td></tr>
+        <tr><td class="col-flat">4226</td><td class="col-name">Sushil Kumar</td><td class="col-amt">₹1,001</td></tr>
+        <tr><td class="col-flat">4224</td><td class="col-name">Disha Jain</td><td class="col-amt">₹1,001</td></tr>
+        <tr><td class="col-flat">2055</td><td class="col-name">Naveen S L</td><td class="col-amt">₹1,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="donor-note">Plus 3 further contributions (₹8,503 total) received without a recorded donor name — included in the total above.</p>
+  </main>
+
+  <div class="cta-row" style="padding-top:30px;">
+    <a class="btn btn-outline" href="index.html">← Back to Home</a>
+    <a class="btn btn-saffron" href="contribute.html"><span class="emoji">🙏</span> Contribute Now</a>
+    <a class="btn btn-bronze" href="sponsors.html"><span class="emoji">🏆</span> Primary Sponsors</a>
+  </div>
+
+  <footer>
+    <p class="invite">🙏 All Residents &amp; Families Cordially Invited 🙏</p>
+    <p class="tag">Let us come together in devotion, music and community spirit</p>
+  </footer>
+</div>
+
+<p class="credit">PWW Ganesha Utsav 2026 · Prestige West Woods Apartment Owners' Association</p>
+
+<div class="bunting"></div>
+
+<script>
+(function(){
+  var el = document.getElementById('statNumber');
+  var target = parseInt(el.getAttribute('data-target'), 10);
+  var duration = 1900;
+  var start = null;
+
+  function easeOutExpo(t){
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  }
+  function format(n){
+    return '₹' + Math.round(n).toLocaleString('en-US');
+  }
+  function step(ts){
+    if(!start) start = ts;
+    var progress = Math.min((ts - start) / duration, 1);
+    var eased = easeOutExpo(progress);
+    el.textContent = format(target * eased);
+    if(progress < 1){
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = format(target);
+    }
+  }
+  requestAnimationFrame(step);
+})();
+</script>
+
+</body>
+</html>

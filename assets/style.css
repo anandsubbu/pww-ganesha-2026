@@ -6,6 +6,10 @@
   --gold-bright:#f0cf83;
   --gold-dim:rgba(217,178,95,0.35);
   --cream:#f4e9d8;
+  --saffron:#e8752c;
+  --saffron-bright:#f5975a;
+  --bronze:#a5711f;
+  --bronze-bright:#cf9a42;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
@@ -75,23 +79,42 @@ a.pill.date:hover, a.pill.date:active{
   transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.35);
 }
 
-/* CTA / NAV BUTTONS (Contribute, Home, etc.) */
-.cta-row{text-align:center; padding:18px 24px 4px;}
+/* CTA / NAV BUTTONS (Contribute, Home, Donor Wall, etc.) */
+.cta-row{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:14px; padding:18px 24px 4px;
+}
 .btn{
-  display:inline-flex; align-items:center; gap:8px;
-  border-radius:999px; padding:13px 28px; font-size:15.5px; font-weight:700;
+  display:inline-flex; align-items:center; gap:9px; line-height:1;
+  border-radius:999px; padding:14px 26px; font-size:15.5px; font-weight:700;
   font-family:'Poppins',sans-serif; text-decoration:none; cursor:pointer; border:none;
   transition:transform 0.15s ease, box-shadow 0.15s ease;
 }
+.btn .emoji{font-size:1.15em; line-height:1; filter:none;}
 .btn-gold{
   background:linear-gradient(180deg,var(--gold-bright),var(--gold)); color:#3a1305;
   box-shadow:0 4px 16px rgba(0,0,0,0.35);
 }
 .btn-gold:hover, .btn-gold:active{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.4); }
+.btn-saffron{
+  background:linear-gradient(180deg,var(--saffron-bright),var(--saffron)); color:#2a0a0a;
+  box-shadow:0 4px 18px rgba(232,117,44,0.45);
+}
+.btn-saffron:hover, .btn-saffron:active{ transform:translateY(-2px); box-shadow:0 6px 20px rgba(232,117,44,0.55); }
 .btn-outline{
   background:transparent; color:var(--gold-bright); border:1.5px solid var(--gold-dim);
 }
 .btn-outline:hover, .btn-outline:active{ border-color:var(--gold-bright); transform:translateY(-2px); }
+.btn-secondary{
+  background:rgba(240,207,131,0.1); color:var(--gold-bright);
+  border:1.5px solid var(--gold-bright);
+}
+.btn-secondary:hover, .btn-secondary:active{ transform:translateY(-2px); background:rgba(240,207,131,0.18); }
+.btn-bronze{
+  background:linear-gradient(180deg,var(--bronze-bright),var(--bronze)); color:#fff6e6;
+  box-shadow:0 4px 18px rgba(165,113,31,0.5);
+}
+.btn-bronze:hover, .btn-bronze:active{ transform:translateY(-2px); box-shadow:0 6px 20px rgba(165,113,31,0.6); }
 
 .divider{text-align:center; padding:20px 0; position:relative;}
 .divider::before{
