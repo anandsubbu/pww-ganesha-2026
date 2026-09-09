@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-09T15:48:27.451Z",
+  "fetchedAt": "2026-09-09T15:52:38.641Z",
   "named": [
     {
       "flat": "1192",
@@ -407,7 +407,7 @@
       "amount": 1000
     }
   ],
-  "unnamedCount": 0,
-  "unnamedAmount": 0,
-  "total": 833067
+  "unnamedCount": 3,
+  "unnamedAmount": 8503,
+  "total": 841570
 }
