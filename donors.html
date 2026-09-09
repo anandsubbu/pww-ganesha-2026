@@ -23,36 +23,38 @@
 <link rel="stylesheet" href="assets/style.css">
 <style>
   /* STAT COUNTER */
-  .stat-wrap{text-align:center; padding:8px 24px 6px;}
+  .stat-wrap{text-align:center; padding:8px 18px 6px;}
   .stat-label{
-    font-size:15px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+    font-size:14px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
     color:var(--gold); margin-bottom:10px;
   }
   .stat-number{
     font-family:'Cinzel',serif; font-weight:700; color:var(--gold-bright);
-    font-size:clamp(38px,10vw,64px); line-height:1.1;
+    font-size:clamp(36px,11vw,64px); line-height:1.1;
     text-shadow:0 2px 16px rgba(0,0,0,0.5);
   }
-  .stat-caption{margin-top:10px; font-size:14.5px; color:rgba(244,233,216,0.75);}
+  .stat-caption{margin-top:10px; font-size:14px; color:rgba(244,233,216,0.75);}
+  .stat-synced{margin-top:6px; font-size:12px; color:rgba(244,233,216,0.5);}
+  .stat-synced.is-stale{color:#e8a25c;}
 
   /* DONOR TABLE */
-  .donor-wrap{padding:24px 24px 10px;}
+  .donor-wrap{padding:20px 18px 10px;}
   .donor-table-box{
     max-width:760px; margin:0 auto;
     border:1px solid var(--gold-dim); border-radius:16px; overflow:hidden;
   }
-  table.donor-table{width:100%; border-collapse:collapse; font-size:15px;}
+  table.donor-table{width:100%; border-collapse:collapse; font-size:13.5px;}
   .donor-table thead th{
     background:rgba(240,207,131,0.12); color:var(--gold-bright);
-    font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px;
-    letter-spacing:1px; text-transform:uppercase; text-align:left;
-    padding:14px 12px; border-bottom:1px solid var(--gold-dim);
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:12px;
+    letter-spacing:0.6px; text-transform:uppercase; text-align:left;
+    padding:11px 8px; border-bottom:1px solid var(--gold-dim);
   }
   .donor-table thead th.col-amt, .donor-table td.col-amt{text-align:right;}
   .donor-table thead th.col-flat, .donor-table td.col-flat{text-align:center;}
   .donor-table tbody td{
-    padding:13px 12px; border-bottom:1px solid rgba(217,178,95,0.14);
-    font-size:15.5px; color:var(--cream); vertical-align:top;
+    padding:11px 8px; border-bottom:1px solid rgba(217,178,95,0.14);
+    font-size:14px; color:var(--cream); vertical-align:top;
   }
   .donor-table tbody tr:last-child td{border-bottom:none;}
   .donor-table tbody tr:nth-child(odd){background:rgba(255,255,255,0.015);}
@@ -61,14 +63,18 @@
 
   .donor-note{
     max-width:760px; margin:16px auto 0; text-align:center;
-    font-size:13.5px; color:rgba(244,233,216,0.6); line-height:1.5;
+    font-size:13px; color:rgba(244,233,216,0.6); line-height:1.5;
+  }
+  .donor-loading{
+    text-align:center; padding:30px 18px; color:rgba(244,233,216,0.6); font-size:14.5px;
   }
 
-  @media(max-width:480px){
-    .donor-wrap{padding:20px 14px 10px;}
-    table.donor-table{font-size:13.5px;}
-    .donor-table thead th{padding:11px 8px; font-size:12px;}
-    .donor-table tbody td{padding:11px 8px; font-size:14px;}
+  @media(min-width:481px){
+    .donor-wrap{padding:24px 24px 10px;}
+    table.donor-table{font-size:15px;}
+    .donor-table thead th{padding:14px 12px; font-size:13.5px;}
+    .donor-table tbody td{padding:13px 12px; font-size:15.5px;}
+    .donor-note{font-size:13.5px;}
   }
 </style>
 </head>
@@ -85,6 +91,16 @@
   </div>
 </header>
 
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html"><span class="nav-icon">🗓️</span><span class="nav-label">Programme</span></a>
+    <a class="nav-item" href="contribute.html"><span class="nav-icon">🙏</span><span class="nav-label">Contribute</span></a>
+    <a class="nav-item" href="sponsors.html"><span class="nav-icon">🏆</span><span class="nav-label">Sponsors</span></a>
+    <a class="nav-item active" href="donors.html" aria-current="page"><span class="nav-icon">🏅</span><span class="nav-label">Donors</span></a>
+    <a class="nav-item" href="https://youtu.be/E6ECGKkolsk" target="_blank" rel="noopener"><span class="nav-icon">▶️</span><span class="nav-label">Last Year</span></a>
+  </div>
+</nav>
+
 <div class="wrap">
   <div class="meta-bar">
     <span class="pill location">📍 Clubhouse, PWW</span>
@@ -93,18 +109,13 @@
     <a class="pill date" href="index.html#day3">20 SEP · SUN</a>
   </div>
 
-  <div class="cta-row">
-    <a class="btn btn-outline" href="index.html">← Back to Home</a>
-    <a class="btn btn-saffron" href="contribute.html"><span class="emoji">🙏</span> Contribute Now</a>
-    <a class="btn btn-bronze" href="sponsors.html"><span class="emoji">🏆</span> Primary Sponsors</a>
-  </div>
-
   <div class="divider"><span>ॐ</span></div>
 
   <div class="stat-wrap">
     <p class="stat-label">Total Contributions Received</p>
-    <div class="stat-number" id="statNumber" data-target="716570">₹0</div>
-    <p class="stat-caption">from 75 contributions, as of 8 Sep 2026 🙏</p>
+    <div class="stat-number" id="statNumber">₹0</div>
+    <p class="stat-caption" id="statCaption">Loading latest figures…</p>
+    <p class="stat-synced" id="statSynced"></p>
   </div>
 
   <main class="donor-wrap">
@@ -117,90 +128,13 @@
             <th class="col-amt">Amount</th>
           </tr>
         </thead>
-        <tbody>
-        <tr><td class="col-flat">1192</td><td class="col-name">Hansa Reddy</td><td class="col-amt">₹100,000</td></tr>
-        <tr><td class="col-flat">3125</td><td class="col-name">Sunil Mehta</td><td class="col-amt">₹51,000</td></tr>
-        <tr><td class="col-flat">2061</td><td class="col-name">Vishal Singivi</td><td class="col-amt">₹51,000</td></tr>
-        <tr><td class="col-flat">3043</td><td class="col-name">Mahendra</td><td class="col-amt">₹22,000</td></tr>
-        <tr><td class="col-flat">2041</td><td class="col-name">Kiran Jain</td><td class="col-amt">₹21,111</td></tr>
-        <tr><td class="col-flat">1082</td><td class="col-name">Prasanna Kumar</td><td class="col-amt">₹21,000</td></tr>
-        <tr><td class="col-flat">1111</td><td class="col-name">Srikanth</td><td class="col-amt">₹21,000</td></tr>
-        <tr><td class="col-flat">1061</td><td class="col-name">Raghu Selvaraj</td><td class="col-amt">₹21,000</td></tr>
-        <tr><td class="col-flat">1072</td><td class="col-name">Uttam Ganna Chand</td><td class="col-amt">₹21,000</td></tr>
-        <tr><td class="col-flat">2095</td><td class="col-name">Ravi Agarwal</td><td class="col-amt">₹21,000</td></tr>
-        <tr><td class="col-flat">4212</td><td class="col-name">Kishore R Benani</td><td class="col-amt">₹15,001</td></tr>
-        <tr><td class="col-flat">G 15</td><td class="col-name">G 15</td><td class="col-amt">₹15,000</td></tr>
-        <tr><td class="col-flat">3196</td><td class="col-name">Harish</td><td class="col-amt">₹11,500</td></tr>
-        <tr><td class="col-flat">2112</td><td class="col-name">Vinit Laxmi Modi</td><td class="col-amt">₹11,111</td></tr>
-        <tr><td class="col-flat">4154</td><td class="col-name">Mahesh, Ruchi, Misha &amp; Disha</td><td class="col-amt">₹11,111</td></tr>
-        <tr><td class="col-flat">4133</td><td class="col-name">Suresh Chand &amp; Suman Ajmeera</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">2094</td><td class="col-name">Ashvin Semlani</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">—</td><td class="col-name">Hum Panch</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">2176</td><td class="col-name">Sridhar, Bhawna, Cherry and Rose</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">—</td><td class="col-name">Meenakshi Electric Corporation</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">2176</td><td class="col-name">Sridhar Kumar</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">2074</td><td class="col-name">Smita Sapani</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">4035</td><td class="col-name">Sakshi Goel</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">3174</td><td class="col-name">Vallabh Daga &amp; Family</td><td class="col-amt">₹11,000</td></tr>
-        <tr><td class="col-flat">3021</td><td class="col-name">Srinivas</td><td class="col-amt">₹10,001</td></tr>
-        <tr><td class="col-flat">2223</td><td class="col-name">Usha Lingaraju</td><td class="col-amt">₹10,001</td></tr>
-        <tr><td class="col-flat">2093</td><td class="col-name">D Vijay Kumar</td><td class="col-amt">₹10,001</td></tr>
-        <tr><td class="col-flat">3052</td><td class="col-name">Prakash Ramachandran</td><td class="col-amt">₹10,000</td></tr>
-        <tr><td class="col-flat">1161</td><td class="col-name">Girish Parekh</td><td class="col-amt">₹10,000</td></tr>
-        <tr><td class="col-flat">4164</td><td class="col-name">Anand subbu</td><td class="col-amt">₹9,501</td></tr>
-        <tr><td class="col-flat">5072</td><td class="col-name">Varun Y J</td><td class="col-amt">₹9,501</td></tr>
-        <tr><td class="col-flat">2192</td><td class="col-name">Abishek Mehta</td><td class="col-amt">₹5,100</td></tr>
-        <tr><td class="col-flat">4124</td><td class="col-name">Sajjan Kotari</td><td class="col-amt">₹5,100</td></tr>
-        <tr><td class="col-flat">2124/4184</td><td class="col-name">Rajesh Kumar &amp; Lalit Kumar Parmar</td><td class="col-amt">₹5,100</td></tr>
-        <tr><td class="col-flat">1173</td><td class="col-name">K J Kaul</td><td class="col-amt">₹5,100</td></tr>
-        <tr><td class="col-flat">2054</td><td class="col-name">Mukesh Kumar Jain</td><td class="col-amt">₹5,100</td></tr>
-        <tr><td class="col-flat">3072</td><td class="col-name">Rafi</td><td class="col-amt">₹5,001</td></tr>
-        <tr><td class="col-flat">3122</td><td class="col-name">Bipin Bafna</td><td class="col-amt">₹5,001</td></tr>
-        <tr><td class="col-flat">2115</td><td class="col-name">Sonal &amp; Nishanth</td><td class="col-amt">₹5,001</td></tr>
-        <tr><td class="col-flat">1271</td><td class="col-name">Prerna Goenka</td><td class="col-amt">₹5,001</td></tr>
-        <tr><td class="col-flat">2152</td><td class="col-name">G Chandra Shekar</td><td class="col-amt">₹5,001</td></tr>
-        <tr><td class="col-flat">5082</td><td class="col-name">Sankalp Dalmia</td><td class="col-amt">₹5,001</td></tr>
-        <tr><td class="col-flat">4222</td><td class="col-name">Dr B S Prabhakar</td><td class="col-amt">₹5,000</td></tr>
-        <tr><td class="col-flat">1032</td><td class="col-name">Sanjay Dhoot</td><td class="col-amt">₹5,000</td></tr>
-        <tr><td class="col-flat">5093</td><td class="col-name">Deepak Kantilal Chandaliya</td><td class="col-amt">₹5,000</td></tr>
-        <tr><td class="col-flat">4176</td><td class="col-name">Shailaja K V</td><td class="col-amt">₹5,000</td></tr>
-        <tr><td class="col-flat">4101</td><td class="col-name">Vikas</td><td class="col-amt">₹5,000</td></tr>
-        <tr><td class="col-flat">3123</td><td class="col-name">Inder Kumar, Champalal Jain</td><td class="col-amt">₹5,000</td></tr>
-        <tr><td class="col-flat">2082</td><td class="col-name">Sushil Surana</td><td class="col-amt">₹3,100</td></tr>
-        <tr><td class="col-flat">1062</td><td class="col-name">Srinivasan V S</td><td class="col-amt">₹2,501</td></tr>
-        <tr><td class="col-flat">2206</td><td class="col-name">Vishal Shankla</td><td class="col-amt">₹2,500</td></tr>
-        <tr><td class="col-flat">2175</td><td class="col-name">Vijay Navya</td><td class="col-amt">₹2,116</td></tr>
-        <tr><td class="col-flat">2091</td><td class="col-name">Archit Patwari</td><td class="col-amt">₹2,100</td></tr>
-        <tr><td class="col-flat">2101</td><td class="col-name">Ayush &amp; Cipika</td><td class="col-amt">₹2,100</td></tr>
-        <tr><td class="col-flat">2104</td><td class="col-name">Amit Jain</td><td class="col-amt">₹2,100</td></tr>
-        <tr><td class="col-flat">2092</td><td class="col-name">Rahul Shah</td><td class="col-amt">₹2,100</td></tr>
-        <tr><td class="col-flat">5206</td><td class="col-name">Shivanath Nilange</td><td class="col-amt">₹2,001</td></tr>
-        <tr><td class="col-flat">2072</td><td class="col-name">Rakesh Roy</td><td class="col-amt">₹2,001</td></tr>
-        <tr><td class="col-flat">2023</td><td class="col-name">Sonu Vinod Mehta</td><td class="col-amt">₹2,000</td></tr>
-        <tr><td class="col-flat">3113</td><td class="col-name">Veena Ishvar Navalgi</td><td class="col-amt">₹2,000</td></tr>
-        <tr><td class="col-flat">4186</td><td class="col-name">Murali K</td><td class="col-amt">₹2,000</td></tr>
-        <tr><td class="col-flat">5126</td><td class="col-name">Sivasankar</td><td class="col-amt">₹1,500</td></tr>
-        <tr><td class="col-flat">2031</td><td class="col-name">Nithin Nahar</td><td class="col-amt">₹1,100</td></tr>
-        <tr><td class="col-flat">3164</td><td class="col-name">Anishka Vaishnav</td><td class="col-amt">₹1,100</td></tr>
-        <tr><td class="col-flat">1213</td><td class="col-name">Shashi kant Gupta</td><td class="col-amt">₹1,100</td></tr>
-        <tr><td class="col-flat">4031</td><td class="col-name">Gita Umesh</td><td class="col-amt">₹1,100</td></tr>
-        <tr><td class="col-flat">4121</td><td class="col-name">Kishindas Rajani</td><td class="col-amt">₹1,100</td></tr>
-        <tr><td class="col-flat">5111</td><td class="col-name">Arvind</td><td class="col-amt">₹1,100</td></tr>
-        <tr><td class="col-flat">4216</td><td class="col-name">Rajesh Pai</td><td class="col-amt">₹1,001</td></tr>
-        <tr><td class="col-flat">4226</td><td class="col-name">Sushil Kumar</td><td class="col-amt">₹1,001</td></tr>
-        <tr><td class="col-flat">4224</td><td class="col-name">Disha Jain</td><td class="col-amt">₹1,001</td></tr>
-        <tr><td class="col-flat">2055</td><td class="col-name">Naveen S L</td><td class="col-amt">₹1,000</td></tr>
+        <tbody id="donorTableBody">
+          <tr><td colspan="3" class="donor-loading">Fetching the latest donor list…</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="donor-note">Plus 3 further contributions (₹8,503 total) received without a recorded donor name — included in the total above.</p>
+    <p class="donor-note" id="donorNote"></p>
   </main>
-
-  <div class="cta-row" style="padding-top:30px;">
-    <a class="btn btn-outline" href="index.html">← Back to Home</a>
-    <a class="btn btn-saffron" href="contribute.html"><span class="emoji">🙏</span> Contribute Now</a>
-    <a class="btn btn-bronze" href="sponsors.html"><span class="emoji">🏆</span> Primary Sponsors</a>
-  </div>
 
   <footer>
     <p class="invite">🙏 All Residents &amp; Families Cordially Invited 🙏</p>
@@ -214,29 +148,164 @@
 
 <script>
 (function(){
-  var el = document.getElementById('statNumber');
-  var target = parseInt(el.getAttribute('data-target'), 10);
-  var duration = 1900;
-  var start = null;
+  // Published Google Sheet (Voluntary Contributions tracker), CSV export.
+  var SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTX5sgK3oukQFX75XWWIliUcsEJk6nAy3V3T98WXgsLRt5oxwarz5629KUQruEe5NotUsCrQ3Hj40N5/pub?gid=1299663559&single=true&output=csv";
 
-  function easeOutExpo(t){
-    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-  }
-  function format(n){
+  // Last-known-good snapshot (8 Sep 2026), used only if the live fetch fails
+  // (offline visitor, or a temporary hiccup on Google's side).
+  var FALLBACK_ROWS = [{"flat": "1192", "name": "Hansa Reddy", "amount": 100000}, {"flat": "3125", "name": "Sunil Mehta", "amount": 51000}, {"flat": "2061", "name": "Vishal Singivi", "amount": 51000}, {"flat": "3043", "name": "Mahendra", "amount": 22000}, {"flat": "2041", "name": "Kiran Jain", "amount": 21111}, {"flat": "1082", "name": "Prasanna Kumar", "amount": 21000}, {"flat": "1111", "name": "Srikanth", "amount": 21000}, {"flat": "1061", "name": "Raghu Selvaraj", "amount": 21000}, {"flat": "1072", "name": "Uttam Ganna Chand", "amount": 21000}, {"flat": "2095", "name": "Ravi Agarwal", "amount": 21000}, {"flat": "4212", "name": "Kishore R Benani", "amount": 15001}, {"flat": "G 15", "name": "G 15", "amount": 15000}, {"flat": "3196", "name": "Harish", "amount": 11500}, {"flat": "2112", "name": "Vinit Laxmi Modi", "amount": 11111}, {"flat": "4154", "name": "Mahesh, Ruchi, Misha & Disha", "amount": 11111}, {"flat": "4133", "name": "Suresh Chand & Suman Ajmeera", "amount": 11000}, {"flat": "2094", "name": "Ashvin Semlani", "amount": 11000}, {"flat": "—", "name": "Hum Panch", "amount": 11000}, {"flat": "2176", "name": "Sridhar, Bhawna, Cherry and Rose", "amount": 11000}, {"flat": "—", "name": "Meenakshi Electric Corporation", "amount": 11000}, {"flat": "2176", "name": "Sridhar Kumar", "amount": 11000}, {"flat": "2074", "name": "Smita Sapani", "amount": 11000}, {"flat": "4035", "name": "Sakshi Goel", "amount": 11000}, {"flat": "3174", "name": "Vallabh Daga & Family", "amount": 11000}, {"flat": "3021", "name": "Srinivas", "amount": 10001}, {"flat": "2223", "name": "Usha Lingaraju", "amount": 10001}, {"flat": "2093", "name": "D Vijay Kumar", "amount": 10001}, {"flat": "3052", "name": "Prakash Ramachandran", "amount": 10000}, {"flat": "1161", "name": "Girish Parekh", "amount": 10000}, {"flat": "4164", "name": "Anand subbu", "amount": 9501}, {"flat": "5072", "name": "Varun Y J", "amount": 9501}, {"flat": "2192", "name": "Abishek Mehta", "amount": 5100}, {"flat": "4124", "name": "Sajjan Kotari", "amount": 5100}, {"flat": "2124/4184", "name": "Rajesh Kumar & Lalit Kumar Parmar", "amount": 5100}, {"flat": "1173", "name": "K J Kaul", "amount": 5100}, {"flat": "2054", "name": "Mukesh Kumar Jain", "amount": 5100}, {"flat": "3072", "name": "Rafi", "amount": 5001}, {"flat": "3122", "name": "Bipin Bafna", "amount": 5001}, {"flat": "2115", "name": "Sonal & Nishanth", "amount": 5001}, {"flat": "1271", "name": "Prerna Goenka", "amount": 5001}, {"flat": "2152", "name": "G Chandra Shekar", "amount": 5001}, {"flat": "5082", "name": "Sankalp Dalmia", "amount": 5001}, {"flat": "4222", "name": "Dr B S Prabhakar", "amount": 5000}, {"flat": "1032", "name": "Sanjay Dhoot", "amount": 5000}, {"flat": "5093", "name": "Deepak Kantilal Chandaliya", "amount": 5000}, {"flat": "4176", "name": "Shailaja K V", "amount": 5000}, {"flat": "4101", "name": "Vikas", "amount": 5000}, {"flat": "3123", "name": "Inder Kumar, Champalal Jain", "amount": 5000}, {"flat": "2082", "name": "Sushil Surana", "amount": 3100}, {"flat": "1062", "name": "Srinivasan V S", "amount": 2501}, {"flat": "2206", "name": "Vishal Shankla", "amount": 2500}, {"flat": "2175", "name": "Vijay Navya", "amount": 2116}, {"flat": "2091", "name": "Archit Patwari", "amount": 2100}, {"flat": "2101", "name": "Ayush & Cipika", "amount": 2100}, {"flat": "2104", "name": "Amit Jain", "amount": 2100}, {"flat": "2092", "name": "Rahul Shah", "amount": 2100}, {"flat": "5206", "name": "Shivanath Nilange", "amount": 2001}, {"flat": "2072", "name": "Rakesh Roy", "amount": 2001}, {"flat": "2023", "name": "Sonu Vinod Mehta", "amount": 2000}, {"flat": "3113", "name": "Veena Ishvar Navalgi", "amount": 2000}, {"flat": "4186", "name": "Murali K", "amount": 2000}, {"flat": "5126", "name": "Sivasankar", "amount": 1500}, {"flat": "2031", "name": "Nithin Nahar", "amount": 1100}, {"flat": "3164", "name": "Anishka Vaishnav", "amount": 1100}, {"flat": "1213", "name": "Shashi kant Gupta", "amount": 1100}, {"flat": "4031", "name": "Gita Umesh", "amount": 1100}, {"flat": "4121", "name": "Kishindas Rajani", "amount": 1100}, {"flat": "5111", "name": "Arvind", "amount": 1100}, {"flat": "4216", "name": "Rajesh Pai", "amount": 1001}, {"flat": "4226", "name": "Sushil Kumar", "amount": 1001}, {"flat": "4224", "name": "Disha Jain", "amount": 1001}, {"flat": "2055", "name": "Naveen S L", "amount": 1000}];
+  var FALLBACK_UNNAMED_COUNT = 3;
+  var FALLBACK_UNNAMED_AMOUNT = 8503;
+  var FALLBACK_DATE_LABEL = "8 Sep 2026";
+
+  var elNumber = document.getElementById('statNumber');
+  var elCaption = document.getElementById('statCaption');
+  var elSynced = document.getElementById('statSynced');
+  var elBody = document.getElementById('donorTableBody');
+  var elNote = document.getElementById('donorNote');
+
+  function formatMoney(n){
     return '₹' + Math.round(n).toLocaleString('en-US');
   }
-  function step(ts){
-    if(!start) start = ts;
-    var progress = Math.min((ts - start) / duration, 1);
-    var eased = easeOutExpo(progress);
-    el.textContent = format(target * eased);
-    if(progress < 1){
-      requestAnimationFrame(step);
+
+  function animateTotal(target){
+    var duration = 1900;
+    var start = null;
+    function easeOutExpo(t){ return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      elNumber.textContent = formatMoney(target * easeOutExpo(progress));
+      if(progress < 1){ requestAnimationFrame(step); }
+      else { elNumber.textContent = formatMoney(target); }
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Minimal RFC4180-ish CSV parser: handles quoted fields, embedded commas,
+  // escaped quotes ("") and CRLF/LF line endings — a plain split(',') breaks
+  // on names like "Inder Kumar, Champalal Jain".
+  function parseCSV(text){
+    var rows = [];
+    var row = [];
+    var field = '';
+    var inQuotes = false;
+    for(var i = 0; i < text.length; i++){
+      var c = text[i];
+      if(inQuotes){
+        if(c === '"'){
+          if(text[i+1] === '"'){ field += '"'; i++; }
+          else { inQuotes = false; }
+        } else {
+          field += c;
+        }
+      } else {
+        if(c === '"'){ inQuotes = true; }
+        else if(c === ','){ row.push(field); field = ''; }
+        else if(c === '\r'){ /* skip */ }
+        else if(c === '\n'){ row.push(field); rows.push(row); row = []; field = ''; }
+        else { field += c; }
+      }
+    }
+    if(field.length || row.length){ row.push(field); rows.push(row); }
+    return rows.filter(function(r){ return r.length > 1 || (r.length === 1 && r[0] !== ''); });
+  }
+
+  function parseAmount(raw){
+    if(!raw) return 0;
+    var cleaned = String(raw).replace(/[^\d.\-]/g, '');
+    var n = parseFloat(cleaned);
+    return isNaN(n) ? 0 : n;
+  }
+
+  function findCol(headers, keyword){
+    for(var i = 0; i < headers.length; i++){
+      if(headers[i].toLowerCase().indexOf(keyword) !== -1) return i;
+    }
+    return -1;
+  }
+
+  function renderTable(namedRows, unnamedCount, unnamedAmount){
+    namedRows.sort(function(a, b){ return b.amount - a.amount; });
+    var html = '';
+    for(var i = 0; i < namedRows.length; i++){
+      var r = namedRows[i];
+      html += '<tr><td class="col-flat">' + escapeHtml(r.flat || '—') + '</td>' +
+              '<td class="col-name">' + escapeHtml(r.name) + '</td>' +
+              '<td class="col-amt">' + formatMoney(r.amount) + '</td></tr>';
+    }
+    elBody.innerHTML = html || '<tr><td colspan="3" class="donor-loading">No contributions recorded yet.</td></tr>';
+
+    var totalCount = namedRows.length + unnamedCount;
+    elCaption.textContent = 'from ' + totalCount + ' contribution' + (totalCount === 1 ? '' : 's') + ' 🙏';
+
+    if(unnamedCount > 0){
+      elNote.textContent = 'Plus ' + unnamedCount + ' further contribution' + (unnamedCount === 1 ? '' : 's') +
+        ' (' + formatMoney(unnamedAmount) + ' total) received without a recorded donor name — included in the total above.';
     } else {
-      el.textContent = format(target);
+      elNote.textContent = '';
     }
   }
-  requestAnimationFrame(step);
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function useFallback(){
+    var total = FALLBACK_ROWS.reduce(function(sum, r){ return sum + r.amount; }, 0) + FALLBACK_UNNAMED_AMOUNT;
+    renderTable(FALLBACK_ROWS.slice(), FALLBACK_UNNAMED_COUNT, FALLBACK_UNNAMED_AMOUNT);
+    animateTotal(total);
+    elSynced.textContent = 'Showing last saved data (as of ' + FALLBACK_DATE_LABEL + ') — live update unavailable right now.';
+    elSynced.className = 'stat-synced is-stale';
+  }
+
+  fetch(SHEET_CSV_URL, { cache: 'no-store' })
+    .then(function(res){
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    })
+    .then(function(text){
+      var table = parseCSV(text);
+      if(!table.length) throw new Error('Empty sheet');
+      var headers = table[0];
+      var flatCol = findCol(headers, 'flat');
+      var nameCol = findCol(headers, 'name');
+      var amtCol = findCol(headers, 'amount');
+      if(nameCol === -1 || amtCol === -1) throw new Error('Expected columns not found');
+
+      var named = [];
+      var unnamedCount = 0, unnamedAmount = 0;
+      for(var i = 1; i < table.length; i++){
+        var r = table[i];
+        var name = (r[nameCol] || '').trim();
+        var flatRaw = flatCol !== -1 ? (r[flatCol] || '').trim() : '';
+        // Skip a grand-total / subtotal row if the tracker has one, so it
+        // doesn't get summed into the total a second time.
+        if(/total/i.test(name) || /total/i.test(flatRaw)) continue;
+        var amount = parseAmount(r[amtCol]);
+        if(!amount) continue; // skip blank/zero rows
+        if(name){
+          named.push({ flat: flatRaw, name: name, amount: amount });
+        } else {
+          unnamedCount++;
+          unnamedAmount += amount;
+        }
+      }
+
+      var total = named.reduce(function(sum, r){ return sum + r.amount; }, 0) + unnamedAmount;
+      renderTable(named, unnamedCount, unnamedAmount);
+      animateTotal(total);
+      var now = new Date();
+      elSynced.textContent = 'Last synced: ' + now.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) +
+        ', ' + now.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' });
+      elSynced.className = 'stat-synced';
+    })
+    .catch(function(err){
+      console.warn('Donor Wall: live fetch failed, using fallback snapshot.', err);
+      useFallback();
+    });
 })();
 </script>
 

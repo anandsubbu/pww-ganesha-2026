@@ -76,11 +76,9 @@
     font-size:14.5px; font-weight:600; line-height:1.5; margin-bottom:14px;
   }
 
-  .back-row{text-align:center; padding:26px 24px 6px;}
-
-  @media(max-width:400px){
-    .contrib-card{padding:28px 18px 26px;}
-    .qr-box{width:170px; height:170px;}
+  @media(min-width:401px){
+    .contrib-card{padding:36px 26px 34px;}
+    .qr-box{width:200px; height:200px;}
   }
 </style>
 </head>
@@ -97,18 +95,22 @@
   </div>
 </header>
 
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html"><span class="nav-icon">🗓️</span><span class="nav-label">Programme</span></a>
+    <a class="nav-item active" href="contribute.html" aria-current="page"><span class="nav-icon">🙏</span><span class="nav-label">Contribute</span></a>
+    <a class="nav-item" href="sponsors.html"><span class="nav-icon">🏆</span><span class="nav-label">Sponsors</span></a>
+    <a class="nav-item" href="donors.html"><span class="nav-icon">🏅</span><span class="nav-label">Donors</span></a>
+    <a class="nav-item" href="https://youtu.be/E6ECGKkolsk" target="_blank" rel="noopener"><span class="nav-icon">▶️</span><span class="nav-label">Last Year</span></a>
+  </div>
+</nav>
+
 <div class="wrap">
   <div class="meta-bar">
     <span class="pill location">📍 Clubhouse, PWW</span>
     <a class="pill date" href="index.html#day1">18 SEP · FRI</a>
     <a class="pill date" href="index.html#day2">19 SEP · SAT</a>
     <a class="pill date" href="index.html#day3">20 SEP · SUN</a>
-  </div>
-
-  <div class="cta-row">
-    <a class="btn btn-outline" href="index.html">← Back to Program Schedule</a>
-    <a class="btn btn-bronze" href="sponsors.html"><span class="emoji">🏆</span> Primary Sponsors</a>
-    <a class="btn btn-secondary" href="donors.html"><span class="emoji">🏅</span> Donor Wall</a>
   </div>
 
   <div class="divider"><span>ॐ</span></div>
@@ -138,12 +140,6 @@
       <div class="tier-box">🎗️ Sponsors contributing ₹50,000 &amp; above will be given space to advertise their business with the contributor's photo on the LED wall for all 3 days</div>
     </div>
   </main>
-
-  <div class="cta-row">
-    <a class="btn btn-outline" href="index.html">← Back to Home</a>
-    <a class="btn btn-bronze" href="sponsors.html"><span class="emoji">🏆</span> Primary Sponsors</a>
-    <a class="btn btn-secondary" href="donors.html"><span class="emoji">🏅</span> Donor Wall</a>
-  </div>
 
   <footer>
     <p class="invite">🙏 All Residents &amp; Families Cordially Invited 🙏</p>

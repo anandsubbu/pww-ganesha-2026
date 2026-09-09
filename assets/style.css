@@ -10,23 +10,27 @@
   --saffron-bright:#f5975a;
   --bronze:#a5711f;
   --bronze-bright:#cf9a42;
+  --tabbar-height:60px;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
+
+/* MOBILE-FIRST BASE (phones). Larger screens are progressively enhanced below via min-width. */
 body{
   background:linear-gradient(180deg,var(--maroon-dark),var(--maroon) 15%,var(--maroon) 85%,var(--maroon-dark));
   color:var(--cream);
   font-family:'Poppins',sans-serif;
   -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(var(--tabbar-height) + env(safe-area-inset-bottom,0px));
 }
 .bunting{
-  height:14px;
+  height:12px;
   background:repeating-linear-gradient(45deg,var(--gold) 0 10px,#1a0505 10px 20px);
 }
-.wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+.wrap{max-width:1100px; margin:0 auto; padding:0 18px;}
 
 /* HERO */
-.hero{position:relative; overflow:hidden; min-height:clamp(340px,68vw,560px); display:flex; align-items:flex-end; justify-content:center;}
+.hero{position:relative; overflow:hidden; min-height:clamp(300px,72vw,560px); display:flex; align-items:flex-end; justify-content:center;}
 .hero-photo{
   position:absolute; inset:0;
   background-image:
@@ -34,59 +38,95 @@ body{
     url('ganesha-hero-mobile.jpg');
   background-size:cover; background-position:center 22%; background-repeat:no-repeat;
 }
-@media(min-width:701px){
-  .hero-photo{ background-image:
-    linear-gradient(180deg, rgba(20,5,5,0.05) 35%, rgba(20,5,5,0.75) 78%, rgba(18,4,4,0.96) 100%),
-    url('ganesha-hero.jpg');
-  }
-}
-.hero-content{position:relative; z-index:2; text-align:center; padding:40px 20px 30px;}
+.hero-content{position:relative; z-index:2; text-align:center; padding:32px 18px 26px;}
 .logo-badge{
-  position:absolute; top:16px; left:16px; z-index:3;
-  width:60px; height:60px; padding:6px;
-  background:#fdf8ee; border:2px solid var(--gold-bright); border-radius:16px;
+  position:absolute; top:12px; left:12px; z-index:3;
+  width:48px; height:48px; padding:5px;
+  background:#fdf8ee; border:2px solid var(--gold-bright); border-radius:13px;
   display:flex; align-items:center; justify-content:center;
   box-shadow:0 4px 16px rgba(0,0,0,0.45);
 }
 .logo-badge img{width:100%; height:100%; object-fit:contain; display:block;}
 .hero h1{
-  font-family:'Cinzel',serif; font-weight:700; font-size:clamp(32px,7vw,60px);
-  color:var(--gold-bright); letter-spacing:1px; line-height:1.15;
+  font-family:'Cinzel',serif; font-weight:700; font-size:clamp(30px,8vw,60px);
+  color:var(--gold-bright); letter-spacing:0.5px; line-height:1.15;
   text-shadow:0 2px 18px rgba(0,0,0,0.6);
 }
 .hero .page-subtitle{
-  margin-top:12px; font-family:'Poppins',sans-serif; font-weight:600;
-  letter-spacing:2px; font-size:16.5px; color:var(--cream); text-transform:uppercase;
+  margin-top:10px; font-family:'Poppins',sans-serif; font-weight:600;
+  letter-spacing:1.5px; font-size:15px; color:var(--cream); text-transform:uppercase;
 }
+
+/* PERSISTENT NAV — one component, two presentations:
+   mobile (base): fixed bottom tab bar
+   tablet/desktop (min-width:768px): sticky top bar */
+.site-nav{
+  position:fixed; left:0; right:0; bottom:0; z-index:100;
+  background:linear-gradient(180deg,var(--maroon-light),var(--maroon-dark));
+  border-top:1px solid var(--gold-dim);
+  box-shadow:0 -4px 16px rgba(0,0,0,0.35);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.nav-inner{
+  display:flex; justify-content:space-around; align-items:stretch;
+  max-width:640px; margin:0 auto; height:var(--tabbar-height);
+}
+.nav-item{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:2px; text-decoration:none; color:rgba(244,233,216,0.62);
+  font-family:'Poppins',sans-serif; font-weight:600; font-size:10px; letter-spacing:0.1px;
+  -webkit-tap-highlight-color:transparent; text-align:center;
+}
+.nav-icon{font-size:19px; line-height:1;}
+.nav-label{line-height:1.15;}
+.nav-item.active{color:var(--gold-bright);}
+.nav-item.active .nav-icon{filter:drop-shadow(0 0 6px rgba(240,207,131,0.55));}
+.nav-item:active{background:rgba(240,207,131,0.08);}
 
 /* META BAR */
 .meta-bar{
-  display:flex; flex-wrap:wrap; justify-content:center; gap:14px;
-  padding:26px 24px 6px;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px;
+  padding:20px 18px 6px;
 }
 .pill{
-  border:1px solid var(--gold-dim); border-radius:999px; padding:10px 22px;
-  font-size:15px; letter-spacing:1px; white-space:nowrap;
+  border:1px solid var(--gold-dim); border-radius:999px; padding:9px 16px;
+  font-size:13.5px; letter-spacing:0.5px; white-space:nowrap;
 }
 .pill.location{color:var(--cream); font-weight:500;}
 a.pill{text-decoration:none; cursor:pointer;}
 .pill.date{
   background:linear-gradient(180deg,var(--gold-bright),var(--gold));
-  color:#3a1305; font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; border:none;
+  color:#3a1305; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; border:none;
   transition:transform 0.15s ease, box-shadow 0.15s ease;
 }
 a.pill.date:hover, a.pill.date:active{
   transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.35);
 }
 
-/* CTA / NAV BUTTONS (Contribute, Home, Donor Wall, etc.) */
-.cta-row{
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
-  gap:14px; padding:18px 24px 4px;
+/* PROMO CARD (YouTube — "last year" highlight, home/programme page) */
+.promo-card{padding:14px 18px 4px;}
+.promo-link{
+  display:flex; align-items:center; gap:14px; max-width:640px; margin:0 auto;
+  border:1px solid var(--gold-dim); border-radius:16px; padding:10px;
+  background:rgba(255,255,255,0.02); text-decoration:none; color:inherit;
+  transition:transform 0.15s ease;
 }
+.promo-link:active{transform:scale(0.98);}
+.promo-thumb{position:relative; flex:0 0 108px; width:108px; height:62px; border-radius:10px; overflow:hidden; background:#111;}
+.promo-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+.promo-play{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-size:19px; color:#fff; background:rgba(0,0,0,0.3);
+}
+.promo-text{flex:1; min-width:0;}
+.promo-title{font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--gold-bright); line-height:1.3;}
+.promo-sub{font-size:12px; color:rgba(244,233,216,0.85); margin-top:4px; line-height:1.4;}
+
+/* Standalone CTA buttons — kept for in-page callouts (e.g. promo card link, UPI button),
+   no longer used for page-to-page navigation (the persistent nav handles that). */
 .btn{
   display:inline-flex; align-items:center; gap:9px; line-height:1;
-  border-radius:999px; padding:14px 26px; font-size:15.5px; font-weight:700;
+  border-radius:999px; padding:13px 22px; font-size:14.5px; font-weight:700;
   font-family:'Poppins',sans-serif; text-decoration:none; cursor:pointer; border:none;
   transition:transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -116,27 +156,61 @@ a.pill.date:hover, a.pill.date:active{
 }
 .btn-bronze:hover, .btn-bronze:active{ transform:translateY(-2px); box-shadow:0 6px 20px rgba(165,113,31,0.6); }
 
-.divider{text-align:center; padding:20px 0; position:relative;}
+.divider{text-align:center; padding:18px 0; position:relative;}
 .divider::before{
   content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
   width:min(500px,80%); height:1px; background:var(--gold-dim);
 }
 .divider span{
   position:relative; background:var(--maroon); padding:0 16px; color:var(--gold);
-  font-size:20px;
+  font-size:19px;
 }
 
-footer{text-align:center; padding:30px 24px 46px;}
-footer .invite{font-size:18px; font-weight:600; letter-spacing:0.5px;}
-footer .tag{margin-top:8px; font-family:'Poppins',sans-serif; font-weight:400; font-size:15.5px; color:rgba(244,233,216,0.8);}
+footer{text-align:center; padding:26px 18px 40px;}
+footer .invite{font-size:16.5px; font-weight:600; letter-spacing:0.3px;}
+footer .tag{margin-top:8px; font-family:'Poppins',sans-serif; font-weight:400; font-size:14.5px; color:rgba(244,233,216,0.8);}
 
-.credit{text-align:center; font-size:12px; color:rgba(244,233,216,0.4); padding-bottom:20px; letter-spacing:0.5px;}
+.credit{text-align:center; font-size:12px; color:rgba(244,233,216,0.4); padding-bottom:18px; letter-spacing:0.5px;}
 
-/* SMALL PHONES */
-@media(max-width:400px){
-  .logo-badge{width:48px; height:48px; border-radius:13px; top:12px; left:12px; padding:5px;}
-  .hero h1{letter-spacing:0.5px;}
-  .pill{padding:9px 16px; font-size:13.5px;}
-  .meta-bar{gap:10px;}
-  .btn{padding:12px 22px; font-size:14.5px;}
+/* ============ PROGRESSIVE ENHANCEMENT UP FROM HERE ============ */
+
+/* Slightly larger phones */
+@media(min-width:401px){
+  .logo-badge{width:60px; height:60px; border-radius:16px; top:16px; left:16px; padding:6px;}
+  .hero h1{letter-spacing:1px;}
+  .pill{padding:10px 22px; font-size:15px;}
+  .meta-bar{gap:14px;}
+  .btn{padding:14px 26px; font-size:15.5px;}
+}
+
+/* Tablet / small laptop and up: switch nav to a sticky top bar */
+@media(min-width:768px){
+  body{padding-bottom:0;}
+  .wrap{padding:0 24px;}
+  .hero-photo{ background-image:
+    linear-gradient(180deg, rgba(20,5,5,0.05) 35%, rgba(20,5,5,0.75) 78%, rgba(18,4,4,0.96) 100%),
+    url('ganesha-hero.jpg');
+  }
+  .hero-content{padding:40px 20px 30px;}
+  .site-nav{
+    position:sticky; top:0; bottom:auto;
+    border-top:none; border-bottom:1px solid var(--gold-dim);
+    box-shadow:0 4px 16px rgba(0,0,0,0.35);
+  }
+  .nav-inner{max-width:920px; gap:6px; height:auto;}
+  .nav-item{
+    flex-direction:row; gap:8px; font-size:14.5px; padding:14px 20px;
+    border-radius:999px;
+  }
+  .nav-icon{font-size:17px;}
+  .nav-item.active{background:rgba(240,207,131,0.14);}
+  .nav-item:hover{color:var(--gold-bright); background:rgba(240,207,131,0.08);}
+  .meta-bar{padding:26px 24px 6px;}
+  .promo-card{padding:6px 24px 8px;}
+  .promo-thumb{flex-basis:150px; width:150px; height:86px;}
+  .promo-title{font-size:16.5px;}
+  .promo-sub{font-size:13.5px;}
+  footer{padding:30px 24px 46px;}
+  footer .invite{font-size:18px;}
+  footer .tag{font-size:15.5px;}
 }

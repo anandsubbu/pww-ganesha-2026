@@ -22,15 +22,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-  /* SPONSOR GRID (page-specific, reuses day-card look) */
+  /* SPONSOR GRID (page-specific, reuses day-card look) — mobile-first */
   .days-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
-    padding:10px 24px 24px;
+    display:grid; grid-template-columns:1fr; gap:16px;
+    padding:8px 18px 20px;
   }
-  @media(max-width:860px){ .days-grid{grid-template-columns:1fr; max-width:520px;} }
+  @media(min-width:861px){
+    .days-grid{grid-template-columns:repeat(3,1fr); gap:20px; padding:10px 24px 24px;}
+  }
 
   .day-card{
-    border:1px solid var(--gold-dim); border-radius:14px; padding:26px 22px 30px;
+    border:1px solid var(--gold-dim); border-radius:14px; padding:22px 16px 26px;
     background:rgba(255,255,255,0.015);
   }
   .day-card h2{
@@ -73,11 +75,11 @@
   }
   .total-banner .amt{font-size:19px;}
 
-  @media(max-width:400px){
-    .day-card{padding:22px 16px 26px;}
-    .all-days-card{padding:22px 16px 6px;}
-    .total-banner{font-size:15px; padding:14px 20px; gap:8px;}
-    .total-banner .amt{font-size:17px;}
+  @media(min-width:401px){
+    .day-card{padding:26px 22px 30px;}
+    .all-days-card{padding:28px 24px 8px;}
+    .total-banner{font-size:17px; padding:16px 28px; gap:10px;}
+    .total-banner .amt{font-size:19px;}
   }
 </style>
 </head>
@@ -94,18 +96,22 @@
   </div>
 </header>
 
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html"><span class="nav-icon">🗓️</span><span class="nav-label">Programme</span></a>
+    <a class="nav-item" href="contribute.html"><span class="nav-icon">🙏</span><span class="nav-label">Contribute</span></a>
+    <a class="nav-item active" href="sponsors.html" aria-current="page"><span class="nav-icon">🏆</span><span class="nav-label">Sponsors</span></a>
+    <a class="nav-item" href="donors.html"><span class="nav-icon">🏅</span><span class="nav-label">Donors</span></a>
+    <a class="nav-item" href="https://youtu.be/E6ECGKkolsk" target="_blank" rel="noopener"><span class="nav-icon">▶️</span><span class="nav-label">Last Year</span></a>
+  </div>
+</nav>
+
 <div class="wrap">
   <div class="meta-bar">
     <span class="pill location">📍 Clubhouse, PWW</span>
     <a class="pill date" href="index.html#day1">18 SEP · FRI</a>
     <a class="pill date" href="index.html#day2">19 SEP · SAT</a>
     <a class="pill date" href="index.html#day3">20 SEP · SUN</a>
-  </div>
-
-  <div class="cta-row">
-    <a class="btn btn-outline" href="index.html">← Back to Home</a>
-    <a class="btn btn-saffron" href="contribute.html"><span class="emoji">🙏</span> Contribute Now</a>
-    <a class="btn btn-secondary" href="donors.html"><span class="emoji">🏅</span> Donor Wall</a>
   </div>
 
   <div class="divider"><span>ॐ</span></div>
