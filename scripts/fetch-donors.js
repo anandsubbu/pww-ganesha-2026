@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SHEET_CSV_URL =
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTX5sgK3oukQFX75XWWIliUcsEJk6nAy3V3T98WXgsLRt5oxwarz5629KUQruEe5NotUsCrQ3Hj40N5/pub?gid=1299663559&single=true&output=csv';
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTX5sgK3oukQFX75XWWIliUcsEJk6nAy3V3T98WXgsLRt5oxwarz5629KUQruEe5NotUsCrQ3Hj40N5/pub?gid=1179275223&single=true&output=csv';
 
 const OUTPUT_PATH = path.join(__dirname, '..', 'assets', 'donors-live.json');
 
