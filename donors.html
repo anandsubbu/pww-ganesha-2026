@@ -38,27 +38,32 @@
   .stat-synced.is-stale{color:#e8a25c;}
 
   /* DONOR TABLE */
-  .donor-wrap{padding:20px 18px 10px;}
+  .donor-wrap{padding:14px 14px 10px;}
   .donor-table-box{
     max-width:760px; margin:0 auto;
-    border:1px solid var(--gold-dim); border-radius:16px; overflow:hidden;
+    border:1px solid var(--gold-dim); border-radius:16px;
+    overflow-x:auto; -webkit-overflow-scrolling:touch;
   }
-  table.donor-table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  table.donor-table{width:100%; min-width:300px; table-layout:fixed; border-collapse:collapse; font-size:12.5px;}
+  .donor-table col.c-flat{width:22%;}
+  .donor-table col.c-name{width:46%;}
+  .donor-table col.c-amt{width:32%;}
   .donor-table thead th{
     background:rgba(240,207,131,0.12); color:var(--gold-bright);
-    font-family:'Poppins',sans-serif; font-weight:700; font-size:12px;
-    letter-spacing:0.6px; text-transform:uppercase; text-align:left;
-    padding:11px 8px; border-bottom:1px solid var(--gold-dim);
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5px;
+    letter-spacing:0.4px; text-transform:uppercase; text-align:left;
+    padding:10px 6px; border-bottom:1px solid var(--gold-dim);
   }
   .donor-table thead th.col-amt, .donor-table td.col-amt{text-align:right;}
   .donor-table thead th.col-flat, .donor-table td.col-flat{text-align:center;}
   .donor-table tbody td{
-    padding:11px 8px; border-bottom:1px solid rgba(217,178,95,0.14);
-    font-size:14px; color:var(--cream); vertical-align:top;
+    padding:10px 6px; border-bottom:1px solid rgba(217,178,95,0.14);
+    font-size:13px; color:var(--cream); vertical-align:top;
+    overflow-wrap:break-word; word-break:break-word;
   }
   .donor-table tbody tr:last-child td{border-bottom:none;}
   .donor-table tbody tr:nth-child(odd){background:rgba(255,255,255,0.015);}
-  .donor-table td.col-flat{font-weight:600; color:var(--gold); white-space:nowrap;}
+  .donor-table td.col-flat{font-weight:600; color:var(--gold); white-space:normal;}
   .donor-table td.col-amt{font-weight:700; color:var(--gold-bright); white-space:nowrap; font-family:'Poppins',sans-serif;}
 
   .donor-note{
@@ -71,7 +76,7 @@
 
   @media(min-width:481px){
     .donor-wrap{padding:24px 24px 10px;}
-    table.donor-table{font-size:15px;}
+    table.donor-table{font-size:15px; min-width:0;}
     .donor-table thead th{padding:14px 12px; font-size:13.5px;}
     .donor-table tbody td{padding:13px 12px; font-size:15.5px;}
     .donor-note{font-size:13.5px;}
@@ -102,14 +107,7 @@
 </nav>
 
 <div class="wrap">
-  <div class="meta-bar">
-    <span class="pill location">📍 Clubhouse, PWW</span>
-    <a class="pill date" href="index.html#day1">18 SEP · FRI</a>
-    <a class="pill date" href="index.html#day2">19 SEP · SAT</a>
-    <a class="pill date" href="index.html#day3">20 SEP · SUN</a>
-  </div>
-
-  <div class="divider"><span>ॐ</span></div>
+  <div class="divider" style="padding-top:10px;"><span>ॐ</span></div>
 
   <div class="stat-wrap">
     <p class="stat-label">Total Contributions Received</p>
@@ -121,6 +119,9 @@
   <main class="donor-wrap">
     <div class="donor-table-box">
       <table class="donor-table">
+        <colgroup>
+          <col class="c-flat"><col class="c-name"><col class="c-amt">
+        </colgroup>
         <thead>
           <tr>
             <th class="col-flat">Flat No</th>
@@ -225,6 +226,21 @@
     return -1;
   }
 
+  // Trackers often have a title/banner row above the real header row (e.g. a
+  // merged "Ganesha Utsav 2026 — Contribution Tracker" cell in row 1). Scan
+  // the first few rows for the one that actually looks like a header — i.e.
+  // contains something matching both "name" and "amount" — instead of
+  // blindly assuming row 0 is it.
+  function findHeaderRowIndex(table){
+    var scanLimit = Math.min(6, table.length);
+    for(var i = 0; i < scanLimit; i++){
+      if(findCol(table[i], 'name') !== -1 && findCol(table[i], 'amount') !== -1){
+        return i;
+      }
+    }
+    return 0; // fall back to the old assumption
+  }
+
   function renderTable(namedRows, unnamedCount, unnamedAmount){
     namedRows.sort(function(a, b){ return b.amount - a.amount; });
     var html = '';
@@ -253,59 +269,94 @@
     });
   }
 
-  function useFallback(){
+  function useFallback(err){
     var total = FALLBACK_ROWS.reduce(function(sum, r){ return sum + r.amount; }, 0) + FALLBACK_UNNAMED_AMOUNT;
     renderTable(FALLBACK_ROWS.slice(), FALLBACK_UNNAMED_COUNT, FALLBACK_UNNAMED_AMOUNT);
     animateTotal(total);
-    elSynced.textContent = 'Showing last saved data (as of ' + FALLBACK_DATE_LABEL + ') — live update unavailable right now.';
+    var reason = err && err.message ? err.message : 'unknown error';
+    elSynced.textContent = 'Showing last saved data (as of ' + FALLBACK_DATE_LABEL + ') — live update unavailable [' + reason + '].';
     elSynced.className = 'stat-synced is-stale';
   }
 
-  fetch(SHEET_CSV_URL, { cache: 'no-store' })
-    .then(function(res){
-      if(!res.ok) throw new Error('HTTP ' + res.status);
-      return res.text();
-    })
-    .then(function(text){
-      var table = parseCSV(text);
-      if(!table.length) throw new Error('Empty sheet');
-      var headers = table[0];
-      var flatCol = findCol(headers, 'flat');
-      var nameCol = findCol(headers, 'name');
-      var amtCol = findCol(headers, 'amount');
-      if(nameCol === -1 || amtCol === -1) throw new Error('Expected columns not found');
+  function formatSyncedLabel(dateObj){
+    return dateObj.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) +
+      ', ' + dateObj.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' });
+  }
 
-      var named = [];
-      var unnamedCount = 0, unnamedAmount = 0;
-      for(var i = 1; i < table.length; i++){
-        var r = table[i];
-        var name = (r[nameCol] || '').trim();
-        var flatRaw = flatCol !== -1 ? (r[flatCol] || '').trim() : '';
-        // Skip a grand-total / subtotal row if the tracker has one, so it
-        // doesn't get summed into the total a second time.
-        if(/total/i.test(name) || /total/i.test(flatRaw)) continue;
-        var amount = parseAmount(r[amtCol]);
-        if(!amount) continue; // skip blank/zero rows
-        if(name){
-          named.push({ flat: flatRaw, name: name, amount: amount });
-        } else {
-          unnamedCount++;
-          unnamedAmount += amount;
-        }
-      }
+  function parseSheetCSV(text){
+    var table = parseCSV(text);
+    if(!table.length) throw new Error('Empty sheet');
+    var headerRow = findHeaderRowIndex(table);
+    var headers = table[headerRow];
+    var flatCol = findCol(headers, 'flat');
+    var nameCol = findCol(headers, 'name');
+    var amtCol = findCol(headers, 'amount');
+    console.log('Donor Wall: detected header row', headerRow, headers, { flatCol: flatCol, nameCol: nameCol, amtCol: amtCol });
+    if(nameCol === -1 || amtCol === -1) throw new Error('Could not find Name/Amount columns in headers: ' + headers.join(' | '));
 
-      var total = named.reduce(function(sum, r){ return sum + r.amount; }, 0) + unnamedAmount;
-      renderTable(named, unnamedCount, unnamedAmount);
-      animateTotal(total);
-      var now = new Date();
-      elSynced.textContent = 'Last synced: ' + now.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) +
-        ', ' + now.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' });
-      elSynced.className = 'stat-synced';
-    })
-    .catch(function(err){
-      console.warn('Donor Wall: live fetch failed, using fallback snapshot.', err);
-      useFallback();
+    var named = [];
+    var unnamedCount = 0, unnamedAmount = 0;
+    for(var i = headerRow + 1; i < table.length; i++){
+      var r = table[i];
+      var name = (r[nameCol] || '').trim();
+      var flatRaw = flatCol !== -1 ? (r[flatCol] || '').trim() : '';
+      if(/total/i.test(name) || /total/i.test(flatRaw)) continue;
+      var amount = parseAmount(r[amtCol]);
+      if(!amount) continue;
+      if(name){ named.push({ flat: flatRaw, name: name, amount: amount }); }
+      else { unnamedCount++; unnamedAmount += amount; }
+    }
+    if(!named.length && !unnamedCount) throw new Error('Parsed 0 contribution rows from the sheet');
+    return { named: named, unnamedCount: unnamedCount, unnamedAmount: unnamedAmount };
+  }
+
+  // Tier 1 (primary): a same-origin JSON file that a scheduled GitHub Action
+  // regenerates every ~30 min by reading the sheet server-side. Same-origin
+  // means this fetch can never hit a browser CORS wall.
+  function tryLiveJson(){
+    return fetch('assets/donors-live.json', { cache: 'no-store' })
+      .then(function(res){
+        if(!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(data){
+        if(!data || (!data.named && !data.unnamedCount)) throw new Error('donors-live.json has no rows');
+        var total = typeof data.total === 'number' ? data.total :
+          (data.named || []).reduce(function(s, r){ return s + r.amount; }, 0) + (data.unnamedAmount || 0);
+        renderTable((data.named || []).slice(), data.unnamedCount || 0, data.unnamedAmount || 0);
+        animateTotal(total);
+        var fetchedAt = data.fetchedAt ? new Date(data.fetchedAt) : new Date();
+        elSynced.textContent = 'Last data fetched: ' + formatSyncedLabel(fetchedAt) + ' (auto-synced every 30 min)';
+        elSynced.className = 'stat-synced';
+      });
+  }
+
+  // Tier 2 (secondary): fetch the published sheet CSV directly from the
+  // browser. Kept as a bonus attempt in case Tier 1's data file isn't there
+  // yet (e.g. the very first deploy, before the scheduled job has run once).
+  function tryDirectFetch(){
+    return fetch(SHEET_CSV_URL, { cache: 'no-store' })
+      .then(function(res){
+        if(!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      })
+      .then(function(text){
+        var parsed = parseSheetCSV(text);
+        var total = parsed.named.reduce(function(s, r){ return s + r.amount; }, 0) + parsed.unnamedAmount;
+        renderTable(parsed.named, parsed.unnamedCount, parsed.unnamedAmount);
+        animateTotal(total);
+        elSynced.textContent = 'Last data fetched: ' + formatSyncedLabel(new Date());
+        elSynced.className = 'stat-synced';
+      });
+  }
+
+  tryLiveJson().catch(function(jsonErr){
+    console.warn('Donor Wall: assets/donors-live.json unavailable, trying direct fetch.', jsonErr);
+    tryDirectFetch().catch(function(directErr){
+      console.warn('Donor Wall: direct fetch also failed, using fallback snapshot.', directErr);
+      useFallback(directErr);
     });
+  });
 })();
 </script>
 
