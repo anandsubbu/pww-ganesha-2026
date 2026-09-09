@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://anandsubbu.github.io/pww-ganesha-2026/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <style>
   /* SPONSOR GRID (page-specific, reuses day-card look) — mobile-first */
@@ -48,8 +48,9 @@
   .sponsor-names{display:block; font-weight:600; font-size:16.5px; line-height:1.4; color:var(--cream); margin-bottom:10px;}
   .amount-pill{
     display:inline-block; background:linear-gradient(180deg,var(--gold-bright),var(--gold));
-    color:#3a1305; font-family:'Poppins',sans-serif; font-weight:700; font-size:15px;
-    padding:8px 20px; border-radius:999px;
+    color:#3a1305; font-family:'Inter',sans-serif; font-weight:700; font-size:15px;
+    font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1, "lnum" 1;
+    letter-spacing:0.2px; padding:8px 20px; border-radius:999px;
   }
   .sponsor-note{font-size:12.5px; font-style:italic; color:rgba(244,233,216,0.6); margin-top:10px; line-height:1.4;}
 
@@ -73,7 +74,10 @@
     font-size:17px; padding:16px 28px; border-radius:999px;
     box-shadow:0 4px 18px rgba(0,0,0,0.35);
   }
-  .total-banner .amt{font-size:19px;}
+  .total-banner .amt{
+    font-size:19px; font-family:'Inter',sans-serif; font-variant-numeric:tabular-nums;
+    font-feature-settings:"tnum" 1, "lnum" 1; letter-spacing:0.2px;
+  }
 
   @media(min-width:401px){
     .day-card{padding:26px 22px 30px;}
