@@ -21,7 +21,6 @@ body{
   color:var(--cream);
   font-family:'Poppins',sans-serif;
   -webkit-font-smoothing:antialiased;
-  padding-bottom:calc(var(--tabbar-height) + env(safe-area-inset-bottom,0px));
 }
 .bunting{
   height:12px;
@@ -57,28 +56,33 @@ body{
   letter-spacing:1.5px; font-size:15px; color:var(--cream); text-transform:uppercase;
 }
 
-/* PERSISTENT NAV — one component, two presentations:
-   mobile (base): fixed bottom tab bar
-   tablet/desktop (min-width:768px): sticky top bar */
+/* PERSISTENT NAV — one component: a sticky bar pinned to the TOP of the
+   viewport on every screen size (phone included — a bottom tab bar was
+   easy to miss, so mobile now matches the tablet/desktop placement).
+   Presentation still adapts: compact icon-over-label stack on phones,
+   roomier icon+label row from tablet width up. */
 .site-nav{
-  position:fixed; left:0; right:0; bottom:0; z-index:100;
+  position:sticky; top:0; z-index:100;
   background:linear-gradient(180deg,var(--maroon-light),var(--maroon-dark));
-  border-top:1px solid var(--gold-dim);
-  box-shadow:0 -4px 16px rgba(0,0,0,0.35);
-  padding-bottom:env(safe-area-inset-bottom,0px);
+  border-bottom:1px solid var(--gold-dim);
+  box-shadow:0 4px 16px rgba(0,0,0,0.35);
+  padding-top:env(safe-area-inset-top,0px);
 }
 .nav-inner{
-  display:flex; justify-content:space-around; align-items:stretch;
+  display:flex; justify-content:space-between; align-items:stretch;
   max-width:640px; margin:0 auto; height:var(--tabbar-height);
+  padding:0 2px;
 }
 .nav-item{
   flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
   gap:2px; text-decoration:none; color:rgba(244,233,216,0.62);
-  font-family:'Poppins',sans-serif; font-weight:600; font-size:10px; letter-spacing:0.1px;
+  font-family:'Poppins',sans-serif; font-weight:600;
+  font-size:clamp(8.5px,2.5vw,10px); letter-spacing:0.05px;
   -webkit-tap-highlight-color:transparent; text-align:center;
+  min-width:0; max-width:100%; padding:0 3px; overflow:hidden;
 }
-.nav-icon{font-size:19px; line-height:1;}
-.nav-label{line-height:1.15;}
+.nav-icon{font-size:clamp(16px,4.6vw,19px); line-height:1;}
+.nav-label{line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%;}
 .nav-item.active{color:var(--gold-bright);}
 .nav-item.active .nav-icon{filter:drop-shadow(0 0 6px rgba(240,207,131,0.55));}
 .nav-item:active{background:rgba(240,207,131,0.08);}
@@ -183,20 +187,15 @@ footer .tag{margin-top:8px; font-family:'Poppins',sans-serif; font-weight:400; f
   .btn{padding:14px 26px; font-size:15.5px;}
 }
 
-/* Tablet / small laptop and up: switch nav to a sticky top bar */
+/* Tablet / small laptop and up: nav switches from the compact phone stack
+   to a roomier icon+label row (it's already a sticky top bar at every size). */
 @media(min-width:768px){
-  body{padding-bottom:0;}
   .wrap{padding:0 24px;}
   .hero-photo{ background-image:
     linear-gradient(180deg, rgba(20,5,5,0.05) 35%, rgba(20,5,5,0.75) 78%, rgba(18,4,4,0.96) 100%),
     url('ganesha-hero.jpg');
   }
   .hero-content{padding:40px 20px 30px;}
-  .site-nav{
-    position:sticky; top:0; bottom:auto;
-    border-top:none; border-bottom:1px solid var(--gold-dim);
-    box-shadow:0 4px 16px rgba(0,0,0,0.35);
-  }
   .nav-inner{max-width:920px; gap:6px; height:auto;}
   .nav-item{
     flex-direction:row; gap:8px; font-size:14.5px; padding:14px 20px;
