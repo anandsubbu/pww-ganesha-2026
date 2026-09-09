@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-09T15:36:19.722Z",
+  "fetchedAt": "2026-09-09T15:48:27.451Z",
   "named": [
     {
       "flat": "1192",
@@ -72,7 +72,7 @@
       "amount": 15001
     },
     {
-      "flat": "G 15",
+      "flat": "",
       "name": "G 15",
       "amount": 15000
     },
@@ -192,7 +192,7 @@
       "amount": 5100
     },
     {
-      "flat": "2124/4184",
+      "flat": "",
       "name": "Rajesh Kumar & Lalit Kumar Parmar",
       "amount": 5100
     },
@@ -207,7 +207,7 @@
       "amount": 5100
     },
     {
-      "flat": "2082 and 3166",
+      "flat": "",
       "name": "Sushil Surana",
       "amount": 5100
     },
@@ -407,7 +407,7 @@
       "amount": 1000
     }
   ],
-  "unnamedCount": 4,
-  "unnamedAmount": 850073,
-  "total": 1683140
+  "unnamedCount": 0,
+  "unnamedAmount": 0,
+  "total": 833067
 }
