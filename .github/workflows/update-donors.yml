@@ -1,0 +1,44 @@
+name: Update Donor Wall data
+
+# Runs server-side on a schedule — this is the fix for the Donor Wall live
+# fetch failing in visitors' browsers ("Failed to fetch"), which happens
+# because the browser blocks the cross-origin request to Google's published
+# CSV endpoint. A GitHub Actions runner making the same request has no such
+# restriction (CORS is a browser-only rule), so it fetches the sheet here,
+# writes assets/donors-live.json, and commits it — the page then loads that
+# JSON from its own origin, which never hits a CORS wall.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # every 30 minutes
+  workflow_dispatch: {}       # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-donors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch latest donor data from the published sheet
+        run: node scripts/fetch-donors.js
+
+      - name: Commit updated data (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/donors-live.json
+          if git diff --staged --quiet; then
+            echo "No changes to donor data — nothing to commit."
+          else
+            git commit -m "Update donor wall data [skip ci]"
+            git push
+          fi
