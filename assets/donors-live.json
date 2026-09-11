@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-11T06:31:54.787Z",
+  "fetchedAt": "2026-09-11T12:06:44.261Z",
   "named": [
     {
       "flat": "1192",
@@ -227,6 +227,11 @@
       "amount": 5100
     },
     {
+      "flat": "1011",
+      "name": "Motilal Pradeep Jain",
+      "amount": 5100
+    },
+    {
       "flat": "3072",
       "name": "Rafi",
       "amount": 5001
@@ -259,11 +264,6 @@
     {
       "flat": "4134",
       "name": "Vineet Jawahar",
-      "amount": 5001
-    },
-    {
-      "flat": "4204",
-      "name": "Anuroopa Chetan",
       "amount": 5001
     },
     {
@@ -457,7 +457,7 @@
       "amount": 1000
     }
   ],
-  "unnamedCount": 4,
-  "unnamedAmount": 18503,
-  "total": 888775
+  "unnamedCount": 3,
+  "unnamedAmount": 8503,
+  "total": 878874
 }
