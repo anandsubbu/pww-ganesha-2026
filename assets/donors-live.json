@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-11T16:41:56.768Z",
+  "fetchedAt": "2026-09-11T19:29:30.306Z",
   "named": [
     {
       "flat": "1192",
@@ -20,6 +20,16 @@
       "flat": "4203",
       "name": "Jitendar Kotari",
       "amount": 50000
+    },
+    {
+      "flat": "1102",
+      "name": "Prakash Khabia & Amit Kumar",
+      "amount": 31000
+    },
+    {
+      "flat": "1091",
+      "name": "Mahaveer Mehta/Sripal Mehta",
+      "amount": 25000
     },
     {
       "flat": "3043",
@@ -64,6 +74,16 @@
     {
       "flat": "1021",
       "name": "Nirbhay Surana and Pragya",
+      "amount": 21000
+    },
+    {
+      "flat": "1043",
+      "name": "Tansukh Manhot",
+      "amount": 21000
+    },
+    {
+      "flat": "1151",
+      "name": "Poonam Paras Sanghvi",
       "amount": 21000
     },
     {
@@ -137,6 +157,11 @@
       "amount": 11000
     },
     {
+      "flat": "1203",
+      "name": "Navaratan Kotari",
+      "amount": 11000
+    },
+    {
       "flat": "1253",
       "name": "Hymareddy",
       "amount": 10500
@@ -154,6 +179,11 @@
     {
       "flat": "2093",
       "name": "D Vijay Kumar",
+      "amount": 10001
+    },
+    {
+      "flat": "1272",
+      "name": "Shriram Saboo",
       "amount": 10001
     },
     {
@@ -295,6 +325,11 @@
       "flat": "3123",
       "name": "Inder Kumar, Champalal Jain",
       "amount": 5000
+    },
+    {
+      "flat": "",
+      "name": "Tailor",
+      "amount": 3500
     },
     {
       "flat": "1062",
@@ -457,7 +492,7 @@
       "amount": 1000
     }
   ],
-  "unnamedCount": 3,
-  "unnamedAmount": 8503,
-  "total": 878874
+  "unnamedCount": 4,
+  "unnamedAmount": 10003,
+  "total": 1002875
 }
