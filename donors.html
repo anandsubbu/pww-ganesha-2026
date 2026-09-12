@@ -170,7 +170,9 @@
   var elNote = document.getElementById('donorNote');
 
   function formatMoney(n){
-    return '₹' + Math.round(n).toLocaleString('en-US');
+    // 'en-IN' groups digits the Indian way (thousands, then lakhs, then
+    // crores — e.g. 12,34,567) instead of the Western 3-digit grouping.
+    return '₹' + Math.round(n).toLocaleString('en-IN');
   }
 
   function animateTotal(target){
