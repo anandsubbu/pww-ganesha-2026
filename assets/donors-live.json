@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-12T08:46:43.550Z",
+  "fetchedAt": "2026-09-12T12:45:53.654Z",
   "named": [
     {
       "flat": "1192",
@@ -85,6 +85,11 @@
       "flat": "1151",
       "name": "Poonam Paras Sanghvi",
       "amount": 21000
+    },
+    {
+      "flat": "4141",
+      "name": "Sonika Srivastava",
+      "amount": 16101
     },
     {
       "flat": "4212",
@@ -272,11 +277,6 @@
       "amount": 5100
     },
     {
-      "flat": "1011",
-      "name": "Motilal Pradeep Jain",
-      "amount": 5100
-    },
-    {
       "flat": "3072",
       "name": "Mahammad Rafi",
       "amount": 5001
@@ -294,6 +294,11 @@
     {
       "flat": "2152",
       "name": "G Chandra Shekar",
+      "amount": 5001
+    },
+    {
+      "flat": "4165",
+      "name": "Karthik Subramanian",
       "amount": 5001
     },
     {
@@ -502,6 +507,11 @@
       "amount": 1100
     },
     {
+      "flat": "2195",
+      "name": "Paresh Rathi",
+      "amount": 1100
+    },
+    {
       "flat": "5111",
       "name": "Arvind",
       "amount": 1100
@@ -549,5 +559,5 @@
   ],
   "unnamedCount": 4,
   "unnamedAmount": 10003,
-  "total": 1036276
+  "total": 1053378
 }
