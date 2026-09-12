@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-12T04:25:49.580Z",
+  "fetchedAt": "2026-09-12T08:46:43.550Z",
   "named": [
     {
       "flat": "1192",
@@ -217,6 +217,11 @@
       "amount": 9501
     },
     {
+      "flat": "5145",
+      "name": "Nilesh K Dedhia",
+      "amount": 7500
+    },
+    {
       "flat": "2192",
       "name": "Abishek Mehta",
       "amount": 5100
@@ -257,13 +262,23 @@
       "amount": 5100
     },
     {
+      "flat": "1271",
+      "name": "Prerna Goenka",
+      "amount": 5100
+    },
+    {
+      "flat": "5082",
+      "name": "Sankalp Dalmia",
+      "amount": 5100
+    },
+    {
       "flat": "1011",
       "name": "Motilal Pradeep Jain",
       "amount": 5100
     },
     {
       "flat": "3072",
-      "name": "Rafi",
+      "name": "Mahammad Rafi",
       "amount": 5001
     },
     {
@@ -277,18 +292,13 @@
       "amount": 5001
     },
     {
-      "flat": "1271",
-      "name": "Prerna Goenka",
-      "amount": 5001
-    },
-    {
       "flat": "2152",
       "name": "G Chandra Shekar",
       "amount": 5001
     },
     {
-      "flat": "5082",
-      "name": "Sankalp Dalmia",
+      "flat": "4204",
+      "name": "Anuroopa",
       "amount": 5001
     },
     {
@@ -327,9 +337,24 @@
       "amount": 5000
     },
     {
+      "flat": "5104",
+      "name": "Anand Navalgi",
+      "amount": 5000
+    },
+    {
+      "flat": "",
+      "name": "Preethi Bhagwat",
+      "amount": 3500
+    },
+    {
       "flat": "",
       "name": "Tailor",
       "amount": 3500
+    },
+    {
+      "flat": "2021",
+      "name": "Kiara Dhole",
+      "amount": 3000
     },
     {
       "flat": "1062",
@@ -372,11 +397,6 @@
       "amount": 2100
     },
     {
-      "flat": "2101",
-      "name": "Ayush & Cipika",
-      "amount": 2100
-    },
-    {
       "flat": "2104",
       "name": "Amit Jain",
       "amount": 2100
@@ -384,6 +404,16 @@
     {
       "flat": "2092",
       "name": "Rahul Shah",
+      "amount": 2100
+    },
+    {
+      "flat": "5042",
+      "name": "Rajeev Choudhary",
+      "amount": 2100
+    },
+    {
+      "flat": "4166",
+      "name": "Ansh Arora",
       "amount": 2100
     },
     {
@@ -395,6 +425,11 @@
       "flat": "2072",
       "name": "Rakesh Roy",
       "amount": 2001
+    },
+    {
+      "flat": "2101",
+      "name": "Ayush & Cipika",
+      "amount": 2000
     },
     {
       "flat": "2023",
@@ -409,6 +444,11 @@
     {
       "flat": "4186",
       "name": "Murali K",
+      "amount": 2000
+    },
+    {
+      "flat": "1051",
+      "name": "Mahesh P Rathod",
       "amount": 2000
     },
     {
@@ -457,6 +497,11 @@
       "amount": 1100
     },
     {
+      "flat": "1143",
+      "name": "Reena Kalia",
+      "amount": 1100
+    },
+    {
       "flat": "5111",
       "name": "Arvind",
       "amount": 1100
@@ -477,6 +522,16 @@
       "amount": 1001
     },
     {
+      "flat": "2216",
+      "name": "Varun Seshadrinathan",
+      "amount": 1001
+    },
+    {
+      "flat": "5101",
+      "name": "Girish Naik",
+      "amount": 1001
+    },
+    {
       "flat": "5064",
       "name": "Vignaesh Muthukumaar",
       "amount": 1001
@@ -494,5 +549,5 @@
   ],
   "unnamedCount": 4,
   "unnamedAmount": 10003,
-  "total": 1002875
+  "total": 1036276
 }
