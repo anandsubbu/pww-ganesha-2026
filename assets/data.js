@@ -87,7 +87,7 @@ window.SITE = {
       title: "Bhajane, Aarti & Visarjana",
       cover: "",                 // no photo yet: shows a rangoli panel
       album: "",
-      short: "1MxpiO4UtBk",
+      short: "HL4BLHswpVM",
       photos: [],
       films: [
         { id: "3-evening-arathi", title: "Evening Arathi", time: "7:00 PM", youtube: "", blurb: "The evening Aarti on the final day." },
