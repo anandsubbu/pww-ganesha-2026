@@ -27,13 +27,16 @@ window.SITE = {
   // Optional: a full festival film (home page "Watch the festival film" button)
   festivalFilm: "",
 
+  // Teaser YouTube Short (shown on the home page and the Partner page)
+  teaser: "PUCqNGGWlME",
+
   days: [
     {
       n: 1, dow: "Friday", date: "18 September 2026",
       title: "Aagamana, Prathishtapane & Folk Night",
       cover: "assets/img/idol-front-a.jpg",
       album: "",                 // Google Photos album link for Day 1
-      short: "",                 // YouTube Short (Day 1 highlights)
+      short: "k2QKOo-Q3H0",                 // YouTube Short (Day 1 highlights)
       photos: [                  // 10-20 sample photos: add to assets/img, list here
         { src: "assets/img/idol-front-a", alt: "Lord Ganesha adorned with flowers" },
         { src: "assets/img/idol-front-b", alt: "Lord Ganesha with a purple flower garland" },
@@ -57,7 +60,7 @@ window.SITE = {
       title: "Homam & Live Concert by Tarana Cafe Band",
       cover: "assets/img/aarti-night.jpg",
       album: "",
-      short: "",
+      short: "7L8HJxBECNg",
       photos: [
         { src: "assets/img/aarti-night", alt: "Aarti with lamps before Lord Ganesha" },
         { src: "assets/img/idol-side",   alt: "Lord Ganesha blessing, framed by flower garlands" }
@@ -84,7 +87,7 @@ window.SITE = {
       title: "Bhajane, Aarti & Visarjana",
       cover: "",                 // no photo yet: shows a rangoli panel
       album: "",
-      short: "",
+      short: "1MxpiO4UtBk",
       photos: [],
       films: [
         { id: "3-evening-arathi", title: "Evening Arathi", time: "7:00 PM", youtube: "", blurb: "The evening Aarti on the final day." },

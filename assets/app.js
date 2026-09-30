@@ -98,6 +98,7 @@ R.home=function(){
    +'<span class="eyebrow">'+esc(S.dates)+'</span><h1>'+esc(S.name)+'</h1><p>Three days. One community. Relive every moment, in photos and film.</p>'
    +'<div class="ctas"><a class="btn btn-p pulse" href="day.html?d=1">Start with Day 1 '+I.right+'</a><a class="btn btn-l" href="films.html">'+I.playS+' Watch the festival films</a></div></div></section>'
    +statsRow()
+   +'<div class="wrap"><section class="sec reveal" style="padding-top:36px;text-align:center"><span class="eyebrow">The teaser</span><h2>Ganesh Utsav in a glance</h2><div style="display:flex;justify-content:center;margin-top:16px">'+player(S.teaser,{short:true,label:"Festival teaser"})+'</div></section></div>'
    +RANGOLI
    +'<div class="wrap"><section class="sec reveal" style="padding-top:14px"><span class="eyebrow">Step 1</span><h2>Choose your day</h2><div class="daycards">'+S.days.map(dayCard).join("")+'</div></section>'
    +'<section class="sec reveal"><span class="eyebrow">Or jump straight to</span><h2>Everything, one tap away</h2><div class="tiles">'
@@ -175,7 +176,7 @@ R.partner=function(){
   var wa=c.whatsapp?'<a class="btn" href="'+esc(c.whatsapp)+'" target="_blank" rel="noopener">Join our WhatsApp group</a>':'<span class="btn" aria-disabled="true">WhatsApp group link to be added</span>';
   var em=c.email?'<a class="btn btn-l" href="mailto:'+esc(c.email)+'">Email '+esc(c.email)+'</a>':'<span class="btn btn-l" aria-disabled="true">Email address to be added</span>';
   $("#main").innerHTML='<div class="wrap"><section class="sec" style="padding-top:32px"><span class="eyebrow">Partner with Ganesh Utsav 2027</span><h1 style="font-size:36px;margin-top:8px;max-width:760px">Three days. Thousands of smiles. One stage for your brand.</h1><p style="margin-top:14px;max-width:640px;color:var(--muted)">Prestige Westwoods comes together every year for Ganesh Utsav. Here is how 2026 looked, and where your brand could be part of 2027.</p><div class="stack" style="max-width:320px"><a class="btn btn-p" href="#contact">Talk to the PWW team</a></div></section>'
-   +'<section class="sec reveal" style="padding-top:28px">'+player(S.festivalFilm,{label:"Festival sizzle reel"})+'</section>'
+   +'<section class="sec reveal" style="padding-top:28px;text-align:center"><span class="eyebrow">Watch the teaser</span><div style="display:flex;justify-content:center;margin-top:14px">'+player(S.teaser,{short:true,label:"Festival teaser"})+'</div></section>'
    +'<div class="nums reveal">'+S.stats.map(function(s){return '<div><b>'+esc(s.n)+'</b><span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'
    +'<section class="sec reveal"><span class="eyebrow">Where you show up</span><h2>Every hour of the festival has a place for you</h2><div class="stack places">'+S.placements.map(function(p,i){return '<div class="place"><i>'+(i+1)+'</i><div><b>'+esc(p.t)+'</b><span>'+esc(p.d)+'</span></div></div>'}).join("")+'</div></section>'
    +'<section class="sec reveal"><span class="eyebrow">See it for yourself</span><h2>Watch the festival</h2><div class="tiles" style="grid-template-columns:repeat(3,1fr)">'+S.days.map(function(d){return '<a class="tile t1" style="min-height:110px;justify-content:flex-end" href="day.html?d='+d.n+'">Day '+d.n+'<small>Films and photos</small></a>'}).join("")+'</div></section>'
