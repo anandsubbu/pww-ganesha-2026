@@ -101,7 +101,7 @@ R.home=function(){
    +'<div class="ctas"><a class="btn btn-p pulse" href="day.html?d=1">Start with Day 1 '+I.right+'</a><a class="btn btn-l" href="films.html">'+I.playS+' Watch the festival films</a></div></div>'
    +'<a class="scrollcue" id="scrollcue" href="#start" aria-label="Scroll down for more"><span>Scroll for more</span><svg width="26" height="30" viewBox="0 0 26 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="c1" d="M4 4l9 9 9-9"/><path class="c2" d="M4 15l9 9 9-9"/></svg></a></section>'
    +statsRow()
-   +'<div class="wrap"><section class="sec reveal" style="padding-top:36px;text-align:center"><span class="eyebrow">The teaser</span><h2>Ganesh Utsav in a glance</h2><div style="display:flex;justify-content:center;margin-top:16px">'+player(S.teaser,{short:true,label:"Festival teaser"})+'</div></section></div>'
+   +'<div class="wrap"><section class="sec reveal" style="padding-top:36px"><span class="eyebrow">The festival in short</span><h2>Ganesh Utsav 2026 - At a Glance</h2><p class="swipehint">Swipe right for the highlights '+I.right+'</p><div class="shorts">'+player(S.teaser,{short:true,label:"PWW Ganesh Utsav 2026 is HERE!",lbl:"PWW Ganesh Utsav 2026 is HERE!"})+S.days.map(function(d){return player(d.short,{short:true,label:"Day "+d.n+" highlights",lbl:"Day "+d.n+" highlights"})}).join("")+'</div></section></div>'
    +RANGOLI
    +'<div class="wrap"><section class="sec reveal" style="padding-top:14px"><span class="eyebrow">Step 1</span><h2>Choose your day</h2><div class="daycards">'+S.days.map(dayCard).join("")+'</div></section>'
    +'<section class="sec reveal"><span class="eyebrow">Or jump straight to</span><h2>Everything, one tap away</h2><div class="tiles">'
@@ -193,12 +193,31 @@ R.partner=function(){
 document.addEventListener("click",function(e){
   var y=e.target.closest("[data-yt]");
   if(y){ var id=y.getAttribute("data-yt"), s=y.classList.contains("v9");
+    if(s){ openFS(id); return; }
     var fr=document.createElement("iframe"); fr.src="https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1";
     fr.allow="autoplay; encrypted-media; picture-in-picture; fullscreen"; fr.allowFullscreen=true; fr.title="Video player";
-    var box=document.createElement("div"); box.className="vid"+(s?" v9":""); box.appendChild(fr); y.replaceWith(box); return; }
+    var box=document.createElement("div"); box.className="vid"; box.appendChild(fr); y.replaceWith(box); return; }
   var p=e.target.closest("[data-lb]");
   if(p){ openLB(+p.dataset.lb, +p.dataset.i); }
 });
+var fs=document.createElement("div"); fs.className="fs"; fs.setAttribute("role","dialog"); fs.setAttribute("aria-label","Video player");
+fs.innerHTML='<button class="c" aria-label="Close video">'+I.close+'</button><div class="box"></div>';
+document.body.appendChild(fs);
+function openFS(id){
+  var fr=document.createElement("iframe"); fr.src="https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1&modestbranding=1";
+  fr.allow="autoplay; encrypted-media; picture-in-picture; fullscreen"; fr.allowFullscreen=true; fr.title="Video player";
+  var b=$(".box",fs); b.innerHTML=""; b.appendChild(fr); fs.classList.add("open"); document.body.style.overflow="hidden";
+  try{history.pushState({fs:1},"")}catch(e){}
+}
+function closeFS(fromPop){
+  if(!fs.classList.contains("open")) return;
+  fs.classList.remove("open"); $(".box",fs).innerHTML=""; document.body.style.overflow="";
+  if(!fromPop){ try{ if(history.state&&history.state.fs) history.back(); }catch(e){} }
+}
+$(".c",fs).onclick=function(){closeFS()};
+fs.addEventListener("click",function(e){if(e.target===fs||e.target.classList.contains("box")) closeFS()});
+window.addEventListener("popstate",function(){closeFS(true)});
+document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeFS(); });
 var lb=document.createElement("div"); lb.className="lb"; lb.setAttribute("role","dialog"); lb.setAttribute("aria-label","Photo viewer");
 lb.innerHTML='<button class="c" aria-label="Close">'+I.close+'</button><button class="p" aria-label="Previous photo">'+I.left+'</button><img alt=""><button class="n" aria-label="Next photo">'+I.right+'</button><div class="cap"></div>';
 document.body.appendChild(lb);

@@ -66,7 +66,7 @@ window.SITE = {
       title: "Homam & Live Concert by Tarana Cafe Band",
       cover: "assets/img/cover-day2.jpg",
       album: "https://photos.app.goo.gl/FLrw59M4bcgbTaad8",
-      short: "7L8HJxBECNg",
+      short: "Sl1_uYTIN8s",
       photos: [
         { src: "assets/img/day2-01", alt: "Ganesha rangoli and puja offerings arranged for the Homam" },
         { src: "assets/img/day2-02", alt: "Flames of the Ganesha Homam" },
