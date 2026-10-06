@@ -242,3 +242,11 @@ footer b{font-family:var(--disp);color:var(--accent);font-size:18px;display:bloc
   .places{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .pager{left:50%;right:auto;transform:translateX(-50%);width:520px;border-radius:999px 999px 0 0;border:1px solid rgba(120,60,30,.35)}
 }
+
+/* ---- residents-only notice ---- */
+.notice{position:relative;background:var(--maroon);color:var(--cream);padding:10px 52px 10px 16px;font-size:12.5px;line-height:1.45}
+.notice p{margin:0;max-width:1100px}
+.notice b{color:#FFD9A0}
+.notice button{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--cream);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.notice button:hover{background:rgba(255,241,220,.15)}
+footer .legal{margin:10px 0;font-size:12px;line-height:1.5}

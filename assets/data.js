@@ -8,8 +8,8 @@
    ============================================================ */
 window.SITE = {
   name: "Ganesh Utsav 2026",
-  org: "Prestige Westwoods Apartment Owners' Association",
-  venue: "Prestige Westwoods Clubhouse",
+  org: "Prestige West Woods Apartment Owners' Association",
+  venue: "Prestige West Woods Clubhouse",
   dates: "18 – 20 September 2026",
 
   // Headline numbers (they count up when scrolled into view). n = number, suffix = e.g. "+". No money figures.
@@ -21,14 +21,14 @@ window.SITE = {
   ],
 
 
-  // Partner page contact. Fill ONE or BOTH. Examples:
-  //   whatsapp: "https://chat.whatsapp.com/xxxx"     email: "partners@example.com"
-  contact: { whatsapp: "", email: "" },
-
   // Optional: a full festival film (home page "Watch the festival film" button)
   festivalFilm: "",
 
-  // Teaser YouTube Short (shown on the home page and the Partner page)
+  // Teaser YouTube Short (shown on the home page)
+  // Notice shown at the top of every page (closable) and, in short form, in the footer
+  legal: "The photos and films on this site are shared only for viewing by residents of Prestige West Woods. The PWW Apartment Owners' Association holds all rights to this media, including the YouTube videos and Google Photos albums. Unauthorised reproduction is prohibited. Any use needs prior written approval from the Association's EC directors.",
+  legalShort: "For Prestige West Woods residents only. All media on this site is the property of the PWW Apartment Owners' Association. Unauthorised reproduction is prohibited; any use needs written approval from the EC directors.",
+
   teaser: "PUCqNGGWlME",
 
   days: [
@@ -72,8 +72,8 @@ window.SITE = {
         { src: "assets/img/day2-02", alt: "Flames of the Ganesha Homam" },
         { src: "assets/img/day2-03", alt: "The Homam in progress with families seated around" },
         { src: "assets/img/day2-04", alt: "Lord Ganesha and the priest during the Aarti" },
-        { src: "assets/img/day2-05", alt: "The Westwoods tower lit up with the I love Westwoods sign" },
-        { src: "assets/img/day2-06", alt: "Residents and guests pose together on Homam day" },
+        { src: "assets/img/day2-05", alt: "The West Woods tower lit up with the I love West Woods sign" },
+        { src: "assets/img/day2-06", alt: "Hon. Shri Dinesh Gundu Rao-ji visits PWW Ganesh Utsav" },
         { src: "assets/img/day2-07", alt: "Tarana Cafe Band performing on stage" },
         { src: "assets/img/day2-08", alt: "Residents dancing at the live concert" }
       ],
@@ -118,7 +118,7 @@ window.SITE = {
       program: [
         { time: "From 7:30 AM",     name: "Tea, Coffee & Breakfast", note: "" },
         { time: "10:00 AM",         name: "Aarti",                   note: "Grand Aarti" },
-        { time: "11:00 AM – 1:00 PM", name: "Felicitation for Sponsors", note: "For residents contributing ₹10,000 and more" },
+        { time: "11:00 AM – 1:00 PM", name: "Felicitation for Sponsors", note: "" },
         { time: "12:30 PM",         name: "Lunch",                   note: "" },
         { time: "1:00 – 2:00 PM",   name: "Dance Competition",       note: "Based on nominations" },
         { time: "5:00 – 7:00 PM",   name: "Bhajane",                 note: "" },
@@ -127,16 +127,5 @@ window.SITE = {
         { time: "9:00 PM",          name: "Dinner",                  note: "" }
       ]
     }
-  ],
-
-  // Brand-pitch page
-  placements: [
-    { t: "Gateway and entry branding", d: "First thing every guest sees, all three days." },
-    { t: "Main stage partner",         d: "Aarti, folk night and the Tarana Cafe concert." },
-    { t: "Food and hospitality",       d: "Tea and coffee counters, lunch and dinner areas." },
-    { t: "Competitions and kids zone", d: "Rangoli, tug of war, housie and dance contests." },
-    { t: "Felicitation and recognition", d: "Sponsor felicitation on Day 3." },
-    { t: "Online: this site and our films", d: "A Presented-by slot on every film page." }
-  ],
-  presentedBy: { name: "[Your brand here]", logo: "" }   // shown on each film page
+  ]
 };

@@ -30,7 +30,12 @@ var FILMS = []; S.days.forEach(function(d){ d.films.forEach(function(f){ var c=O
 function thumbOf(f){ var id=ytId(f.youtube); return id?"https://i.ytimg.com/vi/"+id+"/hqdefault.jpg":""; }
 
 /* ---------- chrome ---------- */
-var LINKS=[["index.html","Home"],["day.html?d=1","Day 1"],["day.html?d=2","Day 2"],["day.html?d=3","Day 3"],["films.html","All Films"],["photos.html","All Photos"],["partner.html","Partner with us"]];
+var LINKS=[["index.html","Home"],["day.html?d=1","Day 1"],["day.html?d=2","Day 2"],["day.html?d=3","Day 3"],["films.html","All Films"],["photos.html","All Photos"]];
+function noticeHTML(){
+  var hide=false; try{hide=sessionStorage.getItem("pww-notice")==="1"}catch(e){}
+  if(hide) return "";
+  return '<div class="notice" id="notice" role="region" aria-label="Notice"><p><b>For Prestige West Woods residents only.</b> '+esc(S.legal)+'</p><button id="noticeX" aria-label="Close notice">'+I.close+'</button></div>';
+}
 function header(crumbs){
   var left = crumbs ? '<nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">'+I.home+'Home</a>'+crumbs.map(function(c,i){
       var last=i===crumbs.length-1;
@@ -39,13 +44,14 @@ function header(crumbs){
     : '<a class="brand" href="index.html"><b>PWW</b><small>GANESH UTSAV 2026</small></a>';
   var dn = LINKS.slice(1).map(function(l,i,a){return '<a href="'+l[0]+'"'+(i===a.length-1?' class="cta"':'')+'>'+l[1]+'</a>'}).join("");
   var dr = LINKS.map(function(l,i,a){return '<a href="'+l[0]+'"'+(i===a.length-1?' class="cta"':'')+'>'+l[1]+'</a>'}).join("");
-  $("#hdr").innerHTML='<a class="skip" href="#main">Skip to content</a><div class="top"><div class="wrap bar">'+left+'<nav class="dnav" aria-label="Main">'+dn+'</nav><button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">'+I.menu+'</button></div></div><div class="toran" aria-hidden="true"></div>'
+  $("#hdr").innerHTML='<a class="skip" href="#main">Skip to content</a>'+noticeHTML()+'<div class="top"><div class="wrap bar">'+left+'<nav class="dnav" aria-label="Main">'+dn+'</nav><button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">'+I.menu+'</button></div></div><div class="toran" aria-hidden="true"></div>'
    +'<div class="drawer" id="drawer" role="dialog" aria-label="Menu"><button class="menu-btn x" id="menuX" aria-label="Close menu">'+I.close+'</button>'+dr+'</div>';
+  var nx=$("#noticeX"); if(nx) nx.onclick=function(){ var n=$("#notice"); if(n) n.remove(); try{sessionStorage.setItem("pww-notice","1")}catch(e){} };
   $("#menuBtn").onclick=function(){$("#drawer").classList.add("open");this.setAttribute("aria-expanded","true")};
   $("#menuX").onclick=function(){$("#drawer").classList.remove("open");$("#menuBtn").setAttribute("aria-expanded","false")};
 }
 function footer(){
-  $("#ftr").innerHTML='<div class="wrap"><footer><b>Prestige Westwoods</b>'+esc(S.org)+' · '+esc(S.name)+' · '+esc(S.venue)+'<br>Ganpati Bappa Morya</footer></div>';
+  $("#ftr").innerHTML='<div class="wrap"><footer><b>Prestige West Woods</b>'+esc(S.org)+' · '+esc(S.name)+' · '+esc(S.venue)+'<p class="legal">'+esc(S.legalShort)+'</p>Ganpati Bappa Morya</footer></div>';
 }
 function pager(prev,next){
   var el=document.createElement("div"); el.className="pager";
@@ -82,9 +88,6 @@ function timeline(d){
 function fmt(n){return Number(n).toLocaleString("en-IN")}
 function statB(s){ return typeof s.n==="number" ? '<b data-count="'+s.n+'" data-suffix="'+esc(s.suffix||"")+'">0'+esc(s.suffix||"")+'</b>' : '<b>'+esc(s.n)+'</b>'; }
 function statsRow(){return '<div class="stats" id="start">'+S.stats.map(function(s){return '<div>'+statB(s)+'<span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'}
-function partnerBox(){
-  return '<div class="cta-box reveal"><span class="eyebrow">FOR BRANDS AND PARTNERS</span><h2>See how grand it gets. Be part of Ganesh Utsav 2027.</h2><p>Three days, homes and families across our community, all in one place.</p><a class="btn" href="partner.html">Partner with us</a></div>';
-}
 function dayCard(d){
   var cover = d.cover ? '<img src="'+sm(d.cover)+'" alt="" loading="lazy">' : '';
   return '<a class="dcard reveal" href="day.html?d='+d.n+'"><div class="arch">'+cover+'</div><div class="t"><span class="d">'+d.dow.toUpperCase().slice(0,3)+' · '+esc(d.date.replace(" 2026","").toUpperCase())+'</span><h3>Day '+d.n+'</h3><p>'+esc(d.title)+'</p><span class="f">Films: '+d.films.map(function(f){return esc(f.title)}).join(" · ")+'</span></div><div class="go">'+I.chev+'</div></a>';
@@ -111,7 +114,7 @@ R.home=function(){
    +'<a class="tile" href="programme.html">'+I.cal+'<span>Programme<small>What happened when</small></span></a></div></section>'
    +'<section class="sec reveal"><span class="eyebrow">A glimpse</span><h2>Moments from the festival</h2><div class="chips" id="gchips">'+S.days.map(function(d,i){return '<button class="chip" data-g="'+i+'" aria-pressed="'+(i===0)+'">Day '+d.n+'</button>'}).join("")+'</div><div class="pgrid" id="ggrid">'+photoGrid(0,8)+'</div><div class="stack" style="margin-top:16px;max-width:420px"><a class="btn btn-p" href="photos.html">See all photos on Google Photos</a></div></section>'
    +'<section class="sec reveal" id="shorts"><span class="eyebrow">Swipe →</span><h2>Highlights in a minute</h2><div class="shorts">'+S.days.map(function(d){return player(d.short,{short:true,label:"Day "+d.n+" highlights",lbl:"Day "+d.n})}).join("")+'</div></section>'
-   +partnerBox()+'</div>';
+   +'</div>';
   footer();
   var cue=$("#scrollcue"); function cueCheck(){ cue.classList.toggle("gone", (window.pageYOffset||document.documentElement.scrollTop)>40); }
   window.addEventListener("scroll",cueCheck,{passive:true}); cueCheck();
@@ -142,11 +145,10 @@ R.watch=function(){
   document.title=f.title+" · Day "+d.n+" · "+S.name;
   header([{t:"Day "+d.n,h:"day.html?d="+d.n},{t:f.title}]);
   var more=d.films.filter(function(x){return x.id!==f.id}).map(function(x){return filmRow(Object.assign({day:d.n},x))}).join("");
-  var pb=S.presentedBy;
   $("#main").innerHTML='<div class="wrap" style="padding-top:16px"><div class="two"><div>'+player(f.youtube,{label:f.title})
    +'<div class="stack" style="margin-top:18px;gap:8px"><span class="eyebrow">Day '+d.n+' · '+esc(f.time)+' · Drone film</span><h1 style="font-size:30px">'+esc(f.title)+'</h1><p style="color:var(--muted)">'+esc(f.blurb||"")+'</p></div>'
    +'<div class="stack" style="margin-top:16px;max-width:520px;display:grid;grid-template-columns:1fr 1fr;gap:12px"><button class="btn btn-p" id="shareBtn" style="font-size:15px">'+I.share+'Share</button>'+albumBtn(d,"Day "+d.n+" photos","btn-o").replace('btn btn-o','btn btn-o" style="font-size:15px').replace(' (album link coming soon)','')+'</div>'
-   +'<div class="slot"><div><small>PRESENTED BY</small><b>'+esc(pb.name)+'</b></div>'+(pb.logo?'<img src="'+pb.logo+'" alt="" style="height:40px">':'')+'</div></div>'
+   +'</div>'
    +'<div><section class="sec" style="padding-top:28px"><h2 style="font-size:22px">Photos from Day '+d.n+'</h2><div class="strip">'+(d.photos.length?d.photos.map(function(p,i){return '<button class="ph" data-lb="'+(d.n-1)+'" data-i="'+i+'" aria-label="Open photo: '+esc(p.alt)+'"><img src="'+p.src+'-sm.jpg" alt="'+esc(p.alt)+'" loading="lazy"></button>'}).join(""):'<div class="ph empty">Photos<br>coming soon</div>')+'</div></section>'
    +(more?'<section class="sec" style="padding-top:28px"><h2 style="font-size:22px">More from Day '+d.n+'</h2><div class="flist" style="display:flex">'+more+'</div></section>':'')+'</div></div></div>';
   footer();
@@ -175,20 +177,6 @@ R.programme=function(){
    +S.days.map(function(d){return '<section class="sec" id="d'+d.n+'" style="padding-top:32px"><h2 style="font-size:24px">Day '+d.n+' <span style="font-size:14px;font-family:var(--body);color:var(--muted);font-weight:500">· '+esc(d.dow)+', '+esc(d.date)+'</span></h2><p style="color:var(--muted);margin-top:4px">'+esc(d.title)+'</p>'+timeline(d)+'</section>'}).join("")+'</div>';
   footer();
 };
-R.partner=function(){
-  header([{t:"Partner with us"}]);
-  var c=S.contact;
-  var wa=c.whatsapp?'<a class="btn" href="'+esc(c.whatsapp)+'" target="_blank" rel="noopener">Join our WhatsApp group</a>':'<span class="btn" aria-disabled="true">WhatsApp group link to be added</span>';
-  var em=c.email?'<a class="btn btn-l" href="mailto:'+esc(c.email)+'">Email '+esc(c.email)+'</a>':'<span class="btn btn-l" aria-disabled="true">Email address to be added</span>';
-  $("#main").innerHTML='<div class="wrap"><section class="sec" style="padding-top:32px"><span class="eyebrow">Partner with Ganesh Utsav 2027</span><h1 style="font-size:36px;margin-top:8px;max-width:760px">Three days. Thousands of smiles. One stage for your brand.</h1><p style="margin-top:14px;max-width:640px;color:var(--muted)">Prestige Westwoods comes together every year for Ganesh Utsav. Here is how 2026 looked, and where your brand could be part of 2027.</p><div class="stack" style="max-width:320px"><a class="btn btn-p" href="#contact">Talk to the PWW team</a></div></section>'
-   +'<section class="sec reveal" style="padding-top:28px;text-align:center"><span class="eyebrow">Watch the teaser</span><div style="display:flex;justify-content:center;margin-top:14px">'+player(S.teaser,{short:true,label:"Festival teaser"})+'</div></section>'
-   +'<div class="nums reveal">'+S.stats.map(function(s){return '<div>'+statB(s)+'<span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'
-   +'<section class="sec reveal"><span class="eyebrow">Where you show up</span><h2>Every hour of the festival has a place for you</h2><div class="stack places">'+S.placements.map(function(p,i){return '<div class="place"><i>'+(i+1)+'</i><div><b>'+esc(p.t)+'</b><span>'+esc(p.d)+'</span></div></div>'}).join("")+'</div></section>'
-   +'<section class="sec reveal"><span class="eyebrow">See it for yourself</span><h2>Watch the festival</h2><div class="tiles" style="grid-template-columns:repeat(3,1fr)">'+S.days.map(function(d){return '<a class="tile t1" style="min-height:110px;justify-content:flex-end" href="day.html?d='+d.n+'">Day '+d.n+'<small>Films and photos</small></a>'}).join("")+'</div></section>'
-   +'<div class="cta-box reveal" id="contact"><h2>Let us plan Ganesh Utsav 2027 together</h2><p>Reach the PWW team for the partnership deck, available dates and placements.</p>'+wa+em+'</div></div>';
-  footer();
-};
-
 /* ---------- global behaviours ---------- */
 document.addEventListener("click",function(e){
   var y=e.target.closest("[data-yt]");
