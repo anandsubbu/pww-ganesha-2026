@@ -35,7 +35,7 @@ window.SITE = {
       n: 1, dow: "Friday", date: "18 September 2026",
       title: "Aagamana, Prathishtapane & Folk Night",
       cover: "assets/img/idol-front-a.jpg",
-      album: "",                 // Google Photos album link for Day 1
+      album: "https://photos.app.goo.gl/Th27xuztDhetkyuo7",                 // Google Photos album link for Day 1
       short: "k2QKOo-Q3H0",                 // YouTube Short (Day 1 highlights)
       photos: [                  // 10-20 sample photos: add to assets/img, list here
         { src: "assets/img/idol-front-a", alt: "Lord Ganesha adorned with flowers" },
@@ -59,7 +59,7 @@ window.SITE = {
       n: 2, dow: "Saturday", date: "19 September 2026",
       title: "Homam & Live Concert by Tarana Cafe Band",
       cover: "assets/img/aarti-night.jpg",
-      album: "",
+      album: "https://photos.app.goo.gl/FLrw59M4bcgbTaad8",
       short: "7L8HJxBECNg",
       photos: [
         { src: "assets/img/aarti-night", alt: "Aarti with lamps before Lord Ganesha" },
@@ -86,7 +86,7 @@ window.SITE = {
       n: 3, dow: "Sunday", date: "20 September 2026",
       title: "Bhajane, Aarti & Visarjana",
       cover: "",                 // no photo yet: shows a rangoli panel
-      album: "",
+      album: "https://photos.app.goo.gl/Zw4aPX4fuXyFy9Kx6",
       short: "HL4BLHswpVM",
       photos: [],
       films: [
