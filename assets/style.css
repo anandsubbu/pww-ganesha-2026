@@ -106,7 +106,8 @@ p{margin:0}
 .chips{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 .chip{min-height:44px;padding:0 22px;border-radius:999px;border:1px solid var(--line);background:transparent;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit;color:var(--ink)}
 .chip[aria-pressed=true]{background:var(--saffron);border-color:transparent}
-.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}
+.pgrid .ph{aspect-ratio:4/3}
 .ph{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1;border:0;padding:0;cursor:pointer;background:repeating-linear-gradient(135deg,#F6DDB0 0 14px,#F0D29C 14px 28px);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font:500 11px var(--body);letter-spacing:1.2px;text-transform:uppercase}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .ph:hover img{transform:scale(1.08)}
@@ -208,7 +209,7 @@ footer b{font-family:var(--disp);color:var(--accent);font-size:18px;display:bloc
   .dcard .arch{width:auto;height:220px;margin:16px 16px 0;border-radius:110px 110px 12px 12px}
   .dcard .go{display:none}
   .tiles{grid-template-columns:repeat(4,1fr);gap:16px}
-  .pgrid{grid-template-columns:repeat(6,1fr);gap:12px}
+  .pgrid{grid-template-columns:repeat(4,1fr);gap:12px}
   .strip .ph{flex-basis:200px}
   .shorts .vid{flex-basis:200px}
   .banner{min-height:340px}.banner .in{padding:0 40px 34px}.banner h1{font-size:54px}

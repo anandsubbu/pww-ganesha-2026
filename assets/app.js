@@ -106,11 +106,11 @@ R.home=function(){
    +'<a class="tile t2" href="films.html">'+I.film+'<span>All Films<small>Drone films by event</small></span></a>'
    +'<a class="tile" href="#shorts">'+I.phone+'<span>Day Highlights<small>Short clips, 1 minute</small></span></a>'
    +'<a class="tile" href="programme.html">'+I.cal+'<span>Programme<small>What happened when</small></span></a></div></section>'
-   +'<section class="sec reveal"><span class="eyebrow">A glimpse</span><h2>Moments from the festival</h2><div class="chips" id="gchips">'+S.days.map(function(d,i){return '<button class="chip" data-g="'+i+'" aria-pressed="'+(i===0)+'">Day '+d.n+'</button>'}).join("")+'</div><div class="pgrid" id="ggrid">'+photoGrid(0,6)+'</div><div class="stack" style="margin-top:16px;max-width:420px"><a class="btn btn-p" href="photos.html">See all photos on Google Photos</a></div></section>'
+   +'<section class="sec reveal"><span class="eyebrow">A glimpse</span><h2>Moments from the festival</h2><div class="chips" id="gchips">'+S.days.map(function(d,i){return '<button class="chip" data-g="'+i+'" aria-pressed="'+(i===0)+'">Day '+d.n+'</button>'}).join("")+'</div><div class="pgrid" id="ggrid">'+photoGrid(0,8)+'</div><div class="stack" style="margin-top:16px;max-width:420px"><a class="btn btn-p" href="photos.html">See all photos on Google Photos</a></div></section>'
    +'<section class="sec reveal" id="shorts"><span class="eyebrow">Swipe →</span><h2>Highlights in a minute</h2><div class="shorts">'+S.days.map(function(d){return player(d.short,{short:true,label:"Day "+d.n+" highlights",lbl:"Day "+d.n})}).join("")+'</div></section>'
    +partnerBox()+'</div>';
   footer();
-  $("#gchips").addEventListener("click",function(e){var b=e.target.closest(".chip"); if(!b) return; $$(".chip",this).forEach(function(c){c.setAttribute("aria-pressed",c===b)}); $("#ggrid").innerHTML=photoGrid(+b.dataset.g,6)});
+  $("#gchips").addEventListener("click",function(e){var b=e.target.closest(".chip"); if(!b) return; $$(".chip",this).forEach(function(c){c.setAttribute("aria-pressed",c===b)}); $("#ggrid").innerHTML=photoGrid(+b.dataset.g,8)});
 };
 
 R.day=function(){
@@ -123,7 +123,7 @@ R.day=function(){
    +'<div class="wrap"><div class="switch" aria-label="Choose day">'+S.days.map(function(x){return '<a href="day.html?d='+x.n+'"'+(x.n===d.n?' class="on" aria-current="page"':'')+'>Day '+x.n+'</a>'}).join("")+'</div>'
    +'<div class="stack" style="max-width:560px">'+albumBtn(d,'<span style="display:flex;gap:12px;align-items:center">'+I.cam+'See Day '+d.n+' photos</span>','btn-p btn-big')
    +'<a class="btn btn-m btn-big" href="#films"><span style="display:flex;gap:12px;align-items:center">'+I.film+'Watch Day '+d.n+' films</span><small>'+d.films.length+' films</small></a></div>'
-   +'<section class="sec reveal" style="padding-top:36px"><h2>Photo highlights</h2><div class="pgrid">'+photoGrid(di,6)+'</div><div class="stack" style="margin-top:14px;max-width:420px">'+albumBtn(d,"See all Day "+d.n+" photos","btn-oa")+'</div></section>'
+   +'<section class="sec reveal" style="padding-top:36px"><h2>Photo highlights</h2><div class="pgrid">'+photoGrid(di,8)+'</div><div class="stack" style="margin-top:14px;max-width:420px">'+albumBtn(d,"See all Day "+d.n+" photos","btn-oa")+'</div></section>'
    +'<section class="sec reveal" id="highlights"><h2>Day '+d.n+' in one minute</h2><div style="margin-top:14px">'+player(d.short,{short:true,label:"Day "+d.n+" highlights"})+'</div></section>'
    +'<section class="sec reveal" id="films"><h2>Films from Day '+d.n+'</h2><div class="flist">'+d.films.map(function(f){var c=Object.assign({day:d.n},f);return filmRow(c)}).join("")+'</div></section>'
    +'<section class="sec" id="programme"><h2 class="reveal">What happened, hour by hour</h2>'+timeline(d)+'</section></div>';
@@ -160,8 +160,8 @@ R.films=function(){
 };
 R.photos=function(){
   header([{t:"All Photos"}]);
-  $("#main").innerHTML='<div class="wrap"><section class="sec" style="padding-top:28px"><span class="eyebrow">Google Photos</span><h1 style="font-size:34px;margin-top:6px">All Photos</h1><p style="color:var(--muted);margin-top:8px">Tap a day to open its full album. A few favourites are shown here.</p></section>'
-   +S.days.map(function(d,i){return '<section class="sec reveal" style="padding-top:32px"><h2 style="font-size:24px">Day '+d.n+'</h2><div class="pgrid">'+photoGrid(i,6)+'</div><div class="stack" style="margin-top:14px;max-width:420px">'+albumBtn(d,"Open Day "+d.n+" album","btn-p")+'</div></section>'}).join("")+'</div>';
+  $("#main").innerHTML='<div class="wrap"><section class="sec" style="padding-top:28px"><span class="eyebrow">Google Photos</span><h1 style="font-size:34px;margin-top:6px">All Photos</h1><p style="color:var(--muted);margin-top:8px">Tap a day to open its full album. Eight favourites from each day are shown here.</p></section>'
+   +S.days.map(function(d,i){return '<section class="sec reveal" style="padding-top:32px"><h2 style="font-size:24px">Day '+d.n+'</h2><div class="pgrid">'+photoGrid(i,8)+'</div><div class="stack" style="margin-top:14px;max-width:420px">'+albumBtn(d,"Open Day "+d.n+" album","btn-p")+'</div></section>'}).join("")+'</div>';
   footer();
 };
 R.programme=function(){

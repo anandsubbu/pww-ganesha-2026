@@ -34,13 +34,18 @@ window.SITE = {
     {
       n: 1, dow: "Friday", date: "18 September 2026",
       title: "Aagamana, Prathishtapane & Folk Night",
-      cover: "assets/img/idol-front-a.jpg",
+      cover: "assets/img/cover-day1.jpg",
       album: "https://photos.app.goo.gl/Th27xuztDhetkyuo7",                 // Google Photos album link for Day 1
       short: "k2QKOo-Q3H0",                 // YouTube Short (Day 1 highlights)
-      photos: [                  // 10-20 sample photos: add to assets/img, list here
-        { src: "assets/img/idol-front-a", alt: "Lord Ganesha adorned with flowers" },
-        { src: "assets/img/idol-front-b", alt: "Lord Ganesha with a purple flower garland" },
-        { src: "assets/img/idol-closeup", alt: "Close-up of Lord Ganesha with devotees behind" }
+      photos: [
+        { src: "assets/img/day1-01", alt: "Residents welcome Lord Ganesha at the Aagamana" },
+        { src: "assets/img/day1-02", alt: "Residents gather around the idol at the Aagamana procession" },
+        { src: "assets/img/day1-03", alt: "Lord Ganesha adorned with flower garlands" },
+        { src: "assets/img/day1-04", alt: "Aarti lamps lit before Lord Ganesha" },
+        { src: "assets/img/day1-05", alt: "Close-up of Lord Ganesha with flower garlands" },
+        { src: "assets/img/day1-06", alt: "Lord Ganesha's blessing hand, with devotees behind" },
+        { src: "assets/img/day1-07", alt: "Dancers form an eight-armed pose on stage at Folk Night" },
+        { src: "assets/img/day1-08", alt: "Folk performers in colourful costumes on stage" }
       ],
       films: [
         { id: "1-aagaman",    title: "Aagaman",    time: "3:30 PM", youtube: "", blurb: "Ganesha's grand entry to PWW with Chande and Nadaswaram." },
@@ -58,12 +63,18 @@ window.SITE = {
     {
       n: 2, dow: "Saturday", date: "19 September 2026",
       title: "Homam & Live Concert by Tarana Cafe Band",
-      cover: "assets/img/aarti-night.jpg",
+      cover: "assets/img/cover-day2.jpg",
       album: "https://photos.app.goo.gl/FLrw59M4bcgbTaad8",
       short: "7L8HJxBECNg",
       photos: [
-        { src: "assets/img/aarti-night", alt: "Aarti with lamps before Lord Ganesha" },
-        { src: "assets/img/idol-side",   alt: "Lord Ganesha blessing, framed by flower garlands" }
+        { src: "assets/img/day2-01", alt: "Ganesha rangoli and puja offerings arranged for the Homam" },
+        { src: "assets/img/day2-02", alt: "Flames of the Ganesha Homam" },
+        { src: "assets/img/day2-03", alt: "The Homam in progress with families seated around" },
+        { src: "assets/img/day2-04", alt: "Lord Ganesha and the priest during the Aarti" },
+        { src: "assets/img/day2-05", alt: "The Westwoods tower lit up with the I love Westwoods sign" },
+        { src: "assets/img/day2-06", alt: "Residents and guests pose together on Homam day" },
+        { src: "assets/img/day2-07", alt: "Tarana Cafe Band performing on stage" },
+        { src: "assets/img/day2-08", alt: "Residents dancing at the live concert" }
       ],
       films: [
         { id: "2-homa",   title: "Ganesha Homa",             time: "8:30 AM", youtube: "", blurb: "The Ganesha Homa, filmed from above." },
@@ -85,10 +96,19 @@ window.SITE = {
     {
       n: 3, dow: "Sunday", date: "20 September 2026",
       title: "Bhajane, Aarti & Visarjana",
-      cover: "",                 // no photo yet: shows a rangoli panel
+      cover: "assets/img/cover-day3.jpg",                 // no photo yet: shows a rangoli panel
       album: "https://photos.app.goo.gl/Zw4aPX4fuXyFy9Kx6",
       short: "HL4BLHswpVM",
-      photos: [],
+      photos: [
+        { src: "assets/img/day3-01", alt: "Aarti flame before Lord Ganesha" },
+        { src: "assets/img/day3-02", alt: "Close-up of Lord Ganesha's face and ornaments" },
+        { src: "assets/img/day3-03", alt: "The decorated Ganesha mandapa" },
+        { src: "assets/img/day3-04", alt: "Performers in colourful costumes at the Visarjana procession" },
+        { src: "assets/img/day3-05", alt: "The illuminated chariot for the Visarjana" },
+        { src: "assets/img/day3-06", alt: "Residents dance along the Visarjana procession" },
+        { src: "assets/img/day3-07", alt: "Confetti and celebration during the Visarjana" },
+        { src: "assets/img/day3-08", alt: "Residents carry Lord Ganesha for the Visarjana" }
+      ],
       films: [
         { id: "3-evening-arathi", title: "Evening Arathi", time: "7:00 PM", youtube: "", blurb: "The evening Aarti on the final day." },
         { id: "3-bhajan",         title: "Bhajan",         time: "5:00 PM", youtube: "", blurb: "Bhajane by the community." },
