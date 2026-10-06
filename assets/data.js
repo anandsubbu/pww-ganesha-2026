@@ -12,13 +12,14 @@ window.SITE = {
   venue: "Prestige Westwoods Clubhouse",
   dates: "18 – 20 September 2026",
 
-  // Real numbers go here when you have them (leave [..] until then). No money figures.
+  // Headline numbers (they count up when scrolled into view). n = number, suffix = e.g. "+". No money figures.
   stats: [
-    { n: "[#,###]", l: "Attendees" },
-    { n: "[###]",   l: "Families" },
-    { n: "[##]",    l: "Events" },
-    { n: "[#,###]", l: "Film views" }
+    { n: 10000, suffix: "+", l: "Attendees" },
+    { n: 500,   suffix: "+", l: "Families" },
+    { n: 15,    suffix: "+", l: "Events" },
+    { n: 3000,  suffix: "+", l: "Pics & Videos" }
   ],
+
 
   // Partner page contact. Fill ONE or BOTH. Examples:
   //   whatsapp: "https://chat.whatsapp.com/xxxx"     email: "partners@example.com"

@@ -79,7 +79,9 @@ function filmRow(f){
 function timeline(d){
   return '<div class="tl">'+d.program.map(function(p){return '<div class="it reveal"><time>'+esc(p.time)+'</time><b>'+esc(p.name)+'</b>'+(p.note?'<p>'+esc(p.note)+'</p>':'')+'</div>'}).join("")+'</div>';
 }
-function statsRow(){return '<div class="stats">'+S.stats.map(function(s){return '<div><b data-count>'+esc(s.n)+'</b><span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'}
+function fmt(n){return Number(n).toLocaleString("en-IN")}
+function statB(s){ return typeof s.n==="number" ? '<b data-count="'+s.n+'" data-suffix="'+esc(s.suffix||"")+'">0'+esc(s.suffix||"")+'</b>' : '<b>'+esc(s.n)+'</b>'; }
+function statsRow(){return '<div class="stats">'+S.stats.map(function(s){return '<div>'+statB(s)+'<span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'}
 function partnerBox(){
   return '<div class="cta-box reveal"><span class="eyebrow">FOR BRANDS AND PARTNERS</span><h2>See how grand it gets. Be part of Ganesh Utsav 2027.</h2><p>Three days, homes and families across our community, all in one place.</p><a class="btn" href="partner.html">Partner with us</a></div>';
 }
@@ -177,7 +179,7 @@ R.partner=function(){
   var em=c.email?'<a class="btn btn-l" href="mailto:'+esc(c.email)+'">Email '+esc(c.email)+'</a>':'<span class="btn btn-l" aria-disabled="true">Email address to be added</span>';
   $("#main").innerHTML='<div class="wrap"><section class="sec" style="padding-top:32px"><span class="eyebrow">Partner with Ganesh Utsav 2027</span><h1 style="font-size:36px;margin-top:8px;max-width:760px">Three days. Thousands of smiles. One stage for your brand.</h1><p style="margin-top:14px;max-width:640px;color:var(--muted)">Prestige Westwoods comes together every year for Ganesh Utsav. Here is how 2026 looked, and where your brand could be part of 2027.</p><div class="stack" style="max-width:320px"><a class="btn btn-p" href="#contact">Talk to the PWW team</a></div></section>'
    +'<section class="sec reveal" style="padding-top:28px;text-align:center"><span class="eyebrow">Watch the teaser</span><div style="display:flex;justify-content:center;margin-top:14px">'+player(S.teaser,{short:true,label:"Festival teaser"})+'</div></section>'
-   +'<div class="nums reveal">'+S.stats.map(function(s){return '<div><b>'+esc(s.n)+'</b><span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'
+   +'<div class="nums reveal">'+S.stats.map(function(s){return '<div>'+statB(s)+'<span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'
    +'<section class="sec reveal"><span class="eyebrow">Where you show up</span><h2>Every hour of the festival has a place for you</h2><div class="stack places">'+S.placements.map(function(p,i){return '<div class="place"><i>'+(i+1)+'</i><div><b>'+esc(p.t)+'</b><span>'+esc(p.d)+'</span></div></div>'}).join("")+'</div></section>'
    +'<section class="sec reveal"><span class="eyebrow">See it for yourself</span><h2>Watch the festival</h2><div class="tiles" style="grid-template-columns:repeat(3,1fr)">'+S.days.map(function(d){return '<a class="tile t1" style="min-height:110px;justify-content:flex-end" href="day.html?d='+d.n+'">Day '+d.n+'<small>Films and photos</small></a>'}).join("")+'</div></section>'
    +'<div class="cta-box reveal" id="contact"><h2>Let us plan Ganesh Utsav 2027 together</h2><p>Reach the PWW team for the partnership deck, available dates and placements.</p>'+wa+em+'</div></div>';
@@ -208,14 +210,20 @@ document.addEventListener("keydown",function(e){ if(!lb.classList.contains("open
 var sx=0; lb.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
 lb.addEventListener("touchend",function(e){var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50) stepLB(dx<0?1:-1)});
 
+function countUp(el){
+  var to=+el.getAttribute("data-count"), suf=el.getAttribute("data-suffix")||"", dur=2400, st=null;
+  function step(ts){ st=st||ts; var k=Math.min(1,(ts-st)/dur), e=1-Math.pow(1-k,4); /* ease-out (quartic) */
+    el.textContent=fmt(Math.round(to*e))+suf; if(k<1) requestAnimationFrame(step); }
+  requestAnimationFrame(step);
+}
 function motion(){
+  var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(still || !("IntersectionObserver" in window)){ $$("[data-count]").forEach(function(n){n.textContent=fmt(n.getAttribute("data-count"))+(n.getAttribute("data-suffix")||"")}); }
   if(!("IntersectionObserver" in window)){ $$(".reveal").forEach(function(n){n.classList.add("in")}); return; }
   var io=new IntersectionObserver(function(es){es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target);} })},{threshold:.12});
   $$(".reveal").forEach(function(n){io.observe(n)});
-  var cio=new IntersectionObserver(function(es){es.forEach(function(en){ if(!en.isIntersecting) return; cio.unobserve(en.target);
-      var t=en.target.textContent; if(!/^[\d,]+$/.test(t)) return; var to=+t.replace(/,/g,""), st=null;
-      function step(ts){ st=st||ts; var k=Math.min(1,(ts-st)/1200); en.target.textContent=Math.round(to*k).toLocaleString("en-IN"); if(k<1) requestAnimationFrame(step)} requestAnimationFrame(step); })});
-  $$("[data-count]").forEach(function(n){cio.observe(n)});
+  var cio=new IntersectionObserver(function(es){es.forEach(function(en){ if(!en.isIntersecting) return; cio.unobserve(en.target); countUp(en.target); })},{threshold:.4});
+  if(!still) $$("[data-count]").forEach(function(n){cio.observe(n)});
 }
 if(R[page]){ R[page](); motion(); }
 })();
