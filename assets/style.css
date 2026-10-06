@@ -56,7 +56,7 @@ p{margin:0}
 .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:zoom 16s ease-in-out infinite alternate}
 @keyframes zoom{from{transform:scale(1)}to{transform:scale(1.08)}}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,10,20,.2),rgba(27,10,20,.9) 80%)}
-.hero .in{position:relative;z-index:2;padding:0 16px 30px;display:flex;flex-direction:column;gap:14px;width:100%;max-width:1120px;margin:0 auto}
+.hero .in{position:relative;z-index:2;padding:0 16px 92px;display:flex;flex-direction:column;gap:14px;width:100%;max-width:1120px;margin:0 auto}
 .hero .eyebrow{color:var(--saffron)}
 .hero h1{font-size:42px}
 .hero p{font-size:16px;color:#E8D5C0;max-width:520px}
@@ -64,6 +64,17 @@ p{margin:0}
 .petals{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .petals i{position:absolute;top:-20px;width:10px;height:14px;border-radius:70% 0 70% 0;background:var(--saffron);opacity:.85;animation:fall linear infinite}
 @keyframes fall{to{transform:translateY(680px) rotate(300deg)}}
+
+/* scroll cue (mobile) */
+.stats{scroll-margin-top:60px}
+.scrollcue{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);z-index:3;min-width:48px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;color:var(--cream);transition:opacity .4s}
+.scrollcue span{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;color:var(--saffron);text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.scrollcue svg{filter:drop-shadow(0 1px 4px rgba(0,0,0,.6))}
+.scrollcue .c1,.scrollcue .c2{animation:cue 1.8s ease-in-out infinite;opacity:0}
+.scrollcue .c2{animation-delay:.3s}
+@keyframes cue{0%{opacity:0;transform:translateY(-6px)}45%{opacity:1}100%{opacity:0;transform:translateY(7px)}}
+.scrollcue.gone{opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.scrollcue .c1,.scrollcue .c2{animation:none;opacity:1}}
 
 /* ---- page banner (day) ---- */
 .banner{position:relative;color:var(--cream);background:var(--maroon);overflow:hidden;min-height:260px;display:flex;align-items:flex-end}
@@ -198,6 +209,7 @@ footer b{font-family:var(--disp);color:var(--accent);font-size:18px;display:bloc
   .top .bar{min-height:72px}
   .hero{min-height:640px}
   .hero .in{padding:0 40px 70px}
+  .scrollcue{display:none}
   .hero h1{font-size:72px;max-width:620px}
   .hero p{font-size:20px}
   .hero .ctas{flex-direction:row;max-width:none}

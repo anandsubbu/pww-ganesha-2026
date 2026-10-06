@@ -81,7 +81,7 @@ function timeline(d){
 }
 function fmt(n){return Number(n).toLocaleString("en-IN")}
 function statB(s){ return typeof s.n==="number" ? '<b data-count="'+s.n+'" data-suffix="'+esc(s.suffix||"")+'">0'+esc(s.suffix||"")+'</b>' : '<b>'+esc(s.n)+'</b>'; }
-function statsRow(){return '<div class="stats">'+S.stats.map(function(s){return '<div>'+statB(s)+'<span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'}
+function statsRow(){return '<div class="stats" id="start">'+S.stats.map(function(s){return '<div>'+statB(s)+'<span>'+esc(s.l)+'</span></div>'}).join("")+'</div>'}
 function partnerBox(){
   return '<div class="cta-box reveal"><span class="eyebrow">FOR BRANDS AND PARTNERS</span><h2>See how grand it gets. Be part of Ganesh Utsav 2027.</h2><p>Three days, homes and families across our community, all in one place.</p><a class="btn" href="partner.html">Partner with us</a></div>';
 }
@@ -98,7 +98,8 @@ R.home=function(){
   $("#main").innerHTML=
    '<section class="hero"><img class="bg" src="assets/img/aarti-night.jpg" alt="Aarti being performed before Lord Ganesha"><div class="petals" aria-hidden="true">'+petals+'</div><div class="in">'
    +'<span class="eyebrow">'+esc(S.dates)+'</span><h1>'+esc(S.name)+'</h1><p>Three days. One community. Relive every moment, in photos and film.</p>'
-   +'<div class="ctas"><a class="btn btn-p pulse" href="day.html?d=1">Start with Day 1 '+I.right+'</a><a class="btn btn-l" href="films.html">'+I.playS+' Watch the festival films</a></div></div></section>'
+   +'<div class="ctas"><a class="btn btn-p pulse" href="day.html?d=1">Start with Day 1 '+I.right+'</a><a class="btn btn-l" href="films.html">'+I.playS+' Watch the festival films</a></div></div>'
+   +'<a class="scrollcue" id="scrollcue" href="#start" aria-label="Scroll down for more"><span>Scroll for more</span><svg width="26" height="30" viewBox="0 0 26 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="c1" d="M4 4l9 9 9-9"/><path class="c2" d="M4 15l9 9 9-9"/></svg></a></section>'
    +statsRow()
    +'<div class="wrap"><section class="sec reveal" style="padding-top:36px;text-align:center"><span class="eyebrow">The teaser</span><h2>Ganesh Utsav in a glance</h2><div style="display:flex;justify-content:center;margin-top:16px">'+player(S.teaser,{short:true,label:"Festival teaser"})+'</div></section></div>'
    +RANGOLI
@@ -112,6 +113,8 @@ R.home=function(){
    +'<section class="sec reveal" id="shorts"><span class="eyebrow">Swipe →</span><h2>Highlights in a minute</h2><div class="shorts">'+S.days.map(function(d){return player(d.short,{short:true,label:"Day "+d.n+" highlights",lbl:"Day "+d.n})}).join("")+'</div></section>'
    +partnerBox()+'</div>';
   footer();
+  var cue=$("#scrollcue"); function cueCheck(){ cue.classList.toggle("gone", (window.pageYOffset||document.documentElement.scrollTop)>40); }
+  window.addEventListener("scroll",cueCheck,{passive:true}); cueCheck();
   $("#gchips").addEventListener("click",function(e){var b=e.target.closest(".chip"); if(!b) return; $$(".chip",this).forEach(function(c){c.setAttribute("aria-pressed",c===b)}); $("#ggrid").innerHTML=photoGrid(+b.dataset.g,8)});
 };
 
