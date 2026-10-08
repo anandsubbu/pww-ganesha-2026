@@ -130,7 +130,7 @@ R.day=function(){
    '<section class="banner">'+(d.cover?'<img src="'+d.cover+'" alt="">':RANGOLI_BIG)+'<div class="in"><span class="eyebrow">'+d.dow.toUpperCase()+' · '+esc(d.date.toUpperCase())+'</span><h1>Day '+d.n+'</h1><p>'+esc(d.title)+'</p></div></section>'
    +'<div class="wrap"><div class="switch" aria-label="Choose day">'+S.days.map(function(x){return '<a href="day.html?d='+x.n+'"'+(x.n===d.n?' class="on" aria-current="page"':'')+'>Day '+x.n+'</a>'}).join("")+'</div>'
    +'<div class="stack" style="max-width:560px">'+albumBtn(d,'<span style="display:flex;gap:12px;align-items:center">'+I.cam+'See Day '+d.n+' photos</span>','btn-p btn-big')
-   +'<a class="btn btn-m btn-big" href="#films"><span style="display:flex;gap:12px;align-items:center">'+I.film+'Watch Day '+d.n+' films</span><small>'+d.films.length+' films</small></a></div>'
+   +'<a class="btn btn-m btn-big" href="#films"><span style="display:flex;gap:12px;align-items:center">'+I.film+'Watch Day '+d.n+' films</span><small>'+d.films.length+(d.films.length===1?' film':' films')+'</small></a></div>'
    +'<section class="sec reveal" style="padding-top:36px"><h2>Photo highlights</h2><div class="pgrid">'+photoGrid(di,8)+'</div><div class="stack" style="margin-top:14px;max-width:420px">'+albumBtn(d,"See all Day "+d.n+" photos","btn-oa")+'</div></section>'
    +'<section class="sec reveal" id="highlights"><h2>Day '+d.n+' in one minute</h2><div style="margin-top:14px">'+player(d.short,{short:true,label:"Day "+d.n+" highlights"})+'</div></section>'
    +'<section class="sec reveal" id="films"><h2>Films from Day '+d.n+'</h2><div class="flist">'+d.films.map(function(f){var c=Object.assign({day:d.n},f);return filmRow(c)}).join("")+'</div></section>'

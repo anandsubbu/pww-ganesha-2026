@@ -49,8 +49,9 @@ window.SITE = {
         { src: "assets/img/day1-08", alt: "Folk performers in colourful costumes on stage" }
       ],
       films: [
-        { id: "1-aagaman",    title: "Aagaman",    time: "3:30 PM", youtube: "", blurb: "Ganesha's grand entry to PWW with Chande and Nadaswaram." },
-        { id: "1-folk-dance", title: "Folk Dance", time: "7:30 PM", youtube: "", blurb: "The folk dance show on the first night." }
+        { id: "1-aagaman",        title: "Aagamana",       time: "3:30 PM", youtube: "A7mWSRRp16I", blurb: "Ganesha's grand entry to PWW with Chande and Nadaswaram." },
+        { id: "1-evening-arathi", title: "Evening Arathi", time: "6:30 PM", youtube: "eOcRf7OMPUs", blurb: "The Prathishtapane and Aarti on the first evening." },
+        { id: "1-folk-dance",     title: "Folk Dance",     time: "7:30 PM", youtube: "W3vM29Pn0sE", blurb: "The folk dance show on the first night." }
       ],
       program: [
         { time: "3:30 PM",        name: "Ganesha Entry to PWW", note: "Chande & Nadaswaram" },
@@ -78,9 +79,9 @@ window.SITE = {
         { src: "assets/img/day2-08", alt: "Residents dancing at the live concert" }
       ],
       films: [
-        { id: "2-homa",   title: "Ganesha Homa",             time: "8:30 AM", youtube: "", blurb: "The Ganesha Homa, filmed from above." },
-        { id: "2-arathi", title: "Arathi",                   time: "Day 2",   youtube: "", blurb: "Grand Aarti at the clubhouse." },
-        { id: "2-tarana", title: "Tarana Band Performance",  time: "8:00 PM", youtube: "", blurb: "Live concert by Tarana Cafe Band." }
+        { id: "2-homa",   title: "Gana Homam",                         time: "8:30 AM", youtube: "GETjgbwudHk", blurb: "The Ganesha Homam, filmed from above." },
+        { id: "2-arathi", title: "Saayam Arathi and VIP Visit",        time: "7:00 PM", youtube: "5T-uYg-IY_E", blurb: "The evening Aarti and the visit of our honoured guests." },
+        { id: "2-tarana", title: "Tarana Band Performance and DJ Night", time: "8:00 PM", youtube: "O9wbUGsH92A", blurb: "Live concert by Tarana Cafe Band, followed by a DJ night." }
       ],
       program: [
         { time: "From 7:30 AM",   name: "Tea, Coffee & Snacks", note: "" },
@@ -111,9 +112,7 @@ window.SITE = {
         { src: "assets/img/day3-08", alt: "Residents carry Lord Ganesha for the Visarjana" }
       ],
       films: [
-        { id: "3-evening-arathi", title: "Evening Arathi", time: "7:00 PM", youtube: "", blurb: "The evening Aarti on the final day." },
-        { id: "3-bhajan",         title: "Bhajan",         time: "5:00 PM", youtube: "", blurb: "Bhajane by the community." },
-        { id: "3-visarjan",       title: "Visarjan",       time: "7:30 PM", youtube: "", blurb: "Grand Visarjana with Dollu Kunitha and more." }
+        { id: "3-visarjan", title: "Bhajan, Saayam Arathi and Grand Visarjan", time: "5:00 PM onwards", youtube: "8eFd_e8Ed4k", blurb: "Bhajane, the evening Aarti and the Grand Visarjana with Dollu Kunitha and more." }
       ],
       program: [
         { time: "From 7:30 AM",     name: "Tea, Coffee & Breakfast", note: "" },
