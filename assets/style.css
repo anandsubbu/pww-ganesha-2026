@@ -235,7 +235,8 @@ footer b{font-family:var(--disp);color:var(--accent);font-size:18px;display:bloc
   .strip .ph{flex-basis:200px}
   .shorts .vid{flex-basis:200px}
   .banner{min-height:340px}.banner .in{padding:0 40px 34px}.banner h1{font-size:54px}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .two{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px;align-items:start}
+  .two>*{min-width:0}
   .flist{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .frow{flex-direction:column;align-items:stretch}.frow .th{width:100%}
   .nums{grid-template-columns:repeat(4,1fr)}
